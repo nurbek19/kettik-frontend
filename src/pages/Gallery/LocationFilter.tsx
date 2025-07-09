@@ -17,26 +17,26 @@ export default function LocationFilter({ locations = [], onChange }: { onChange?
   }
 
   return (
-    <ScrollArea className="w-full whitespace-nowrap pb-5 pt-10">
-        <div className="flex gap-2">
+    <ScrollArea className="w-full whitespace-nowrap pb-5 pt-10 max-[744px]:py-5">
+      <div className="flex gap-2">
         {locations.map(location => (
-        <Button
-          key={location}
-          onClick={() => toggleLocation(location)}
+          <Button
+            key={location}
+            onClick={() => toggleLocation(location)}
             variant="outline"
-          className={cn(
-            "text-dark-gray rounded-full px-3 py-2 text-xl font-semibold transition-colors",
-            selected.includes(location)
-              ? "text-green border-green border-2 hover:text-green"
-              : "border-[#E5E5E5]"
-          )}
-        >
-          {location}
-        </Button>
-      ))}
-        </div>
+            className={cn(
+              "text-dark-gray rounded-full px-3 py-2 text-xl font-semibold transition-colors",
+              selected.includes(location)
+                ? "text-green border-green border-2 hover:text-green"
+                : "border-[#E5E5E5]"
+            )}
+          >
+            {location}
+          </Button>
+        ))}
+      </div>
 
-        <ScrollBar orientation="horizontal" />
+      <ScrollBar orientation="horizontal" />
     </ScrollArea>
   )
 }

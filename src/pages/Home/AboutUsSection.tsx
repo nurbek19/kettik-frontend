@@ -45,9 +45,9 @@ export const AboutUsSection = () => {
 
     return (
         <div>
-            <div className="max-w-screen-xl mx-auto pt-[120px] pb-[60px]">
-                <div className="grid grid-cols-2 gap-5 items-center">
-                    <div className="grid grid-cols-2 gap-5">
+            <div className="max-w-screen-xl mx-auto pt-[120px] pb-[60px] max-[1320px]:px-5 max-[1100px]:py-8">
+                <div className="grid grid-cols-2 gap-5 items-center max-[744px]:grid-cols-1">
+                    <div className="grid grid-cols-2 gap-5 max-[744px]:order-2">
                         <div className="flex flex-col gap-5">
                             {images?.slice(0, 2)?.map((imgObj) => (
                                 <img key={imgObj.id} src={imgObj.image} className="w-full h-[300px] object-cover rounded-3xl" alt="team image" />
@@ -61,8 +61,8 @@ export const AboutUsSection = () => {
                         </div>
                     </div>
 
-                    <div>
-                        <h3 className="pb-7">{historyData?.title}</h3>
+                    <div className="max-[744px]:order-1">
+                        <h3 className="pb-7 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[744px]:pb-6">{historyData?.title}</h3>
 
                         <p className="text-gray pb-6">{historyData?.text}</p>
 
@@ -76,13 +76,13 @@ export const AboutUsSection = () => {
                     </div>
                 </div>
 
-                <div className="pt-[120px]">
+                <div className="pt-[120px] max-[1100px]:pt-8">
                     <CompanyNumbers digits={digits} />
                 </div>
             </div>
 
-            <div className="pt-15 pb-15">
-                <h3 className="text-center pb-7">Поймай дух путешествия!</h3>
+            <div className="pt-15 pb-15 max-[1100px]:py-8">
+                <h3 className="text-center pb-7 max-[1024px]:text-[36px] max-[744px]:text-[28px]">Поймай дух путешествия!</h3>
 
                 <div className="">
                     <Carousel
@@ -94,7 +94,7 @@ export const AboutUsSection = () => {
                     >
                         <CarouselContent>
                             {Array.from({ length: 10 }).map((_, index) => (
-                                <CarouselItem key={index} className="max-w-[410px] w-full h-[400px]">
+                                <CarouselItem key={index} className="max-w-[410px] w-full h-[400px] max-[1024px]:max-w-[300px] max-[1024px]:h-[290px] max-[744px]:max-w-[260px] max-[744px]:h-[250px]">
                                     <img src={banner} className='w-full h-full object-cover' alt="tour image" />
                                 </CarouselItem>
                             ))}
@@ -104,20 +104,20 @@ export const AboutUsSection = () => {
             </div>
 
 
-            <div className="max-w-screen-xl mx-auto pt-15 pb-[120px]">
-                <h3 className="text-center pb-10">Отзывы</h3>
+            <div className="max-w-screen-xl mx-auto pt-15 pb-[120px] max-[1100px]:py-8">
+                <h3 className="text-center pb-10  max-[1024px]:text-[36px] max-[744px]:text-[28px]">Отзывы</h3>
 
                 <div className="flex justify-center">
-                    <div>
+                    <div className="max-w-[1090px] w-full max-[1200px]:max-w-full">
                         <Carousel
                             opts={{
                                 // align: "center"
                             }}
-                            className="w-[1090px]"
+                            className="w-full max-[1200px]:px-12"
                         >
-                            <CarouselContent className="">
+                            <CarouselContent>
                                 {reviews?.slice(0, 20).map((review) => (
-                                    <CarouselItem key={review.id} className="max-w-[370px] w-full pl-5">
+                                    <CarouselItem key={review.id} className="md:basis-1/2 lg:basis-1/3 pl-5">
                                         <div className="bg-[#F5F5F5] rounded-sm shadow-md p-5">
                                             <div className="flex items-center gap-3">
                                                 <img
@@ -145,8 +145,8 @@ export const AboutUsSection = () => {
                                 ))}
                             </CarouselContent>
 
-                            <CarouselPrevious />
-                            <CarouselNext />
+                            <CarouselPrevious className="max-[1200px]:left-2" />
+                            <CarouselNext className="max-[1200px]:right-2" />
                         </Carousel>
                     </div>
                 </div>

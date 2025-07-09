@@ -69,7 +69,7 @@ export const RequestForm = ({ textColor = 'light' }: { textColor: 'light' | 'dar
 
     return (
         <div>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 gap-5 max-[744px]:grid-cols-1">
                 <div className="flex flex-col gap-6">
                     <div>
                         <Label htmlFor="name" className={`${color} font-semibold text-base pb-[6px]`}>Имя*</Label>

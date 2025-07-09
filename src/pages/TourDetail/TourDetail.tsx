@@ -54,12 +54,12 @@ export const TourDetail = () => {
                 <Button className='h-auto px-13 py-3'>Забронировать</Button>
             </Banner>
 
-            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[90px]">
+            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[90px] max-[1320px]:px-5 max-[1024px]:py-8">
                 <Breadcrumbs />
 
-                <h3 className="text-center pt-10 pb-8">Информация о туре</h3>
+                <h3 className="text-center pt-10 pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[1024px]:py-6">Информация о туре</h3>
 
-                <div className='flex items-center justify-center gap-20'>
+                <div className='flex items-center justify-center gap-20 max-[744px]:flex-col max-[744px]:gap-6'>
                     <div className='flex flex-col items-center gap-2'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
                             <path d="M20.5 40C31.5457 40 40.5 31.0457 40.5 20C40.5 8.9543 31.5457 0 20.5 0C9.4543 0 0.5 8.9543 0.5 20C0.5 31.0457 9.4543 40 20.5 40Z" fill="url(#paint0_linear_280_9169)" />
@@ -75,7 +75,7 @@ export const TourDetail = () => {
                             </linearGradient>
                         </svg>
 
-                        <p className='text-2xl font-semibold text-dark-gray'>Длительность</p>
+                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>Длительность</p>
                         <span className='text-base text-dark-gray'>{tour.duration}</span>
                     </div>
                     <div className='flex flex-col items-center gap-2'>
@@ -97,7 +97,7 @@ export const TourDetail = () => {
                             </linearGradient>
                         </svg>
 
-                        <p className='text-2xl font-semibold text-dark-gray'>Сложность</p>
+                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>Сложность</p>
                         <span className='text-base text-dark-gray'>{tour.difficulty}</span>
                     </div>
                     <div className='flex flex-col items-center gap-2'>
@@ -134,7 +134,7 @@ export const TourDetail = () => {
                             </linearGradient>
                         </svg>
 
-                        <p className='text-2xl font-semibold text-dark-gray'>Тип</p>
+                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>Тип</p>
                         <span className='text-base text-dark-gray'>{tour.type}</span>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ export const TourDetail = () => {
                 >
                     <CarouselContent>
                         {tour.images.map((imgObj) => (
-                            <CarouselItem key={imgObj.id} className="max-w-[410px] w-full h-[400px]">
+                            <CarouselItem key={imgObj.id} className="max-w-[410px] w-full h-[400px] max-[1024px]:max-w-[300px] max-[1024px]:h-[290px] max-[744px]:max-w-[260px] max-[744px]:h-[250px]">
                                 <img src={imgObj.image} className='w-full h-full object-cover' alt="tour image" />
                             </CarouselItem>
                         ))}
@@ -159,45 +159,37 @@ export const TourDetail = () => {
             </div>
 
 
-            <div className="max-w-screen-xl mx-auto pt-[90px] pb-[120px]">
-                <div className='pb-[120px]'>
-                    <h3 className='text-center pb-6'>Программа тура</h3>
-                    <h5 className='text-center pb-6'>Продолжительность тура 4 дня</h5>
+            <div className="max-w-screen-xl mx-auto pt-[90px] pb-[120px] max-[1320px]:px-5 max-[1024px]:py-8">
+                <div className='pb-[120px] max-[1024px]:pb-8'>
+                    <h3 className='text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Программа тура</h3>
+                    <h5 className='text-center pb-6 max-[744px]:text-[22px]'>Продолжительность тура 4 дня</h5>
 
                     {tour.programs?.map((program) => (
-                        <div className='grid grid-cols-[370px_1fr] gap-x-15' key={program.id}>
-                            <div className="relative w-[370px] h-[300px] pr-[65px] border-r-2 border-green before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full before:top-[50%] before:right-[-10px] before:bg-green before:translate-y-[-50%]">
+                        <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={program.id}>
+                            <div className="relative max-w-[370px] w-full h-[300px] pr-[65px] border-r-2 border-green before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full before:top-[50%] before:right-[-10px] before:bg-green before:translate-y-[-50%] max-[744px]:before:hidden max-[744px]:border-r-0 max-[744px]:pr-0 max-[744px]:h-[255px]">
                                 <img src={program.image} className='w-full h-full object-cover rounded-3xl' alt="tour image" />
                             </div>
 
                             <div>
-                                <p className='text-2xl text-dark-gray font-semibold pb-6'>День {program.day}:</p>
+                                <p className='text-2xl text-dark-gray font-semibold pb-6 max-[744px]:text-xl'>День {program.day}:</p>
 
-                                {/* <ul className='text-base text-gray list-disc pl-6'>
-                                <li>Утренний сбор туристов</li>
-                                <li>Выезд на озеро Сон Кол</li>
-                                <li>Посещение Башни Бурана по пути                                </li>
-                                <li>Остановка в ущелье Боом                                </li>
-                                <li>Приезд на озеро Сон Кол                                </li>
-                                <li>Заселение в Юртах                                </li>
-                                <li>Конная прогулка
-                                </li>
-                                <li>Ужин</li>
-                            </ul> */}
-
-                                <div className='text-base text-gray pl-6'>
-                                    <ReactMarkdown children={program.text.replace(/(\r\n|\n|\r)/g, "<br />")} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
+                                <div className='[&>ul]:text-base [&>ul]:text-gray [&>ul]:list-disc [&>ul]:pl-6'>
+                                    <ReactMarkdown children={program.text} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
                                 </div>
+
+                                {/* <div className='text-base text-gray pl-6'>
+                                    <ReactMarkdown children={program.text.replace(/(\r\n|\n|\r)/g, "<br />")} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
+                                </div> */}
                             </div>
 
-                            <div className='h-15 border-r-2 border-green' />
-                            <div className='h-15' />
+                            <div className='h-15 border-r-2 border-green gap-x-15 max-[744px]:hidden' />
+                            <div className='h-15 gap-x-15 max-[744px]:hidden' />
                         </div>
                     ))}
                 </div>
 
 
-                <div className='bg-[#F5F5F5] grid grid-cols-[1fr_2fr] gap-10 border border-[#E5E5E5] p-10 rounded-3xl'>
+                <div className='bg-[#F5F5F5] grid grid-cols-[1fr_2fr] gap-10 border border-[#E5E5E5] p-10 rounded-3xl max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:p-5'>
                     <div className='flex flex-col gap-10'>
                         <div>
                             <p className='flex items-center gap-2 text-2xl text-dark-gray font-semibold pb-4'>
@@ -334,7 +326,7 @@ export const TourDetail = () => {
                     </div>
                 </div>
 
-                <h3 className='text-center pt-[120px] pb-8'>FAQ</h3>
+                <h3 className='text-center pt-[120px] pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[1024px]:py-8'>FAQ</h3>
 
                 <Accordion
                     type="single"
@@ -343,7 +335,7 @@ export const TourDetail = () => {
                 >
                     {faq?.map((item) => (
                         <AccordionItem key={item.id} value={item.id} className='accordion-shadow px-5 rounded-3xl'>
-                            <AccordionTrigger className='text-xl text-dark-gray font-semibold'>{item.question}</AccordionTrigger>
+                            <AccordionTrigger className='text-xl text-dark-gray font-semibold  max-[744px]:text-lg'>{item.question}</AccordionTrigger>
                             <AccordionContent className="text-base text-gray">
                                 {item.answer}
                             </AccordionContent>
@@ -352,8 +344,8 @@ export const TourDetail = () => {
                 </Accordion>
 
 
-                <div className='flex flex-col items-center pt-[120px] pb-8'>
-                    <h3 className='pb-6'>Маршрут</h3>
+                <div className='flex flex-col items-center pt-[120px] pb-8 max-[1024px]:pt-8'>
+                    <h3 className='pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Маршрут</h3>
                     <p className='text-gray text-center pb-6'>Этот маршрут — настоящее приключение сквозь сердце Центральной Азии: меняющиеся пейзажи, кочевые традиции незабываемая атмосфера свободы на просторах Кыргызстана.</p>
 
                     <Button className='h-auto !px-12 py-3'>
@@ -364,7 +356,7 @@ export const TourDetail = () => {
                         </svg>
                     </Button>
 
-                    <div className='w-full pt-6 [&>iframe]:w-full [&>iframe]:h-[600px] [&>iframe]:rounded-3xl'>
+                    <div className='w-full pt-6 [&>iframe]:w-full [&>iframe]:h-[600px] [&>iframe]:rounded-3xl max-[744px]:[&>iframe]:h-[300px]'>
                         <ReactMarkdown children={tour.map} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
                     </div>
                 </div>

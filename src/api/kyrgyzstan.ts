@@ -24,6 +24,6 @@ export const kyrgyzstanApi = {
         return fetch(`${BASE_URL}/v1/kyrgyzstan/articles/?limit=100&offset=1`, { signal }).then((res) => res.json() as Promise<ArticlesDto>);
     },
     getRegions: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/kyrgyzstan/regions`, { signal }).then((res) => res.json() as Promise<any>);
+        return fetch(`${BASE_URL}/v1/kyrgyzstan/regions`, { signal }).then((res) => res.json() as Promise<Array<{ id: string; name: string; text: string }>>);
     },
 }

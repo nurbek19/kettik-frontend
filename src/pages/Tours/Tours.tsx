@@ -39,10 +39,10 @@ export const Tours = () => {
         <div>
             <Banner img={banner.image} title={banner.title} text={banner.subtitle} />
 
-            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[120px]">
+            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[120px] max-[1320px]:px-5 max-[744px]:pb-8">
                 <Breadcrumbs />
 
-                <h3 className="text-center pt-10 pb-8">Туры</h3>
+                <h3 className="text-center pt-10 pb-8 max-[744px]:py-5 max-[1024px]:text-[36px] max-[744px]:text-[28px]">Туры</h3>
 
                 <ScrollArea className="w-full whitespace-nowrap pb-5">
                     <div className="flex gap-4">
@@ -69,7 +69,7 @@ export const Tours = () => {
                 </ScrollArea>
 
 
-                <div className="grid grid-cols-4 gap-5 pt-3">
+                <div className="grid grid-cols-4 gap-5 pt-3 max-[1024px]:grid-cols-2 max-[744px]:grid-cols-1">
                     {tours.results.map((tour) => (
                         <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`${tour.id}`} />
                     ))}

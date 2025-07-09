@@ -97,55 +97,55 @@ export const Gallery = () => {
         <div>
             <Banner img={bannerData.image} title={bannerData.title} text={bannerData.subtitle} />
 
-            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[120px]">
+            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[120px] max-[1320px]:px-5 max-[744px]:py-8">
                 <Breadcrumbs />
 
                 <LocationFilter locations={locations} onChange={(options) => setSelected(options)} />
 
-                <div className="pb-15 pt-7">
+                <div className="pb-15 pt-7 max-[744px]:py-0">
                     {!selectedPlaces.length && (
-                        <h5 className="text-center">Выберите локацию</h5>
+                        <h5 className="text-center max-[744px]:text-[24px]">Выберите локацию</h5>
                     )}
 
                     {selectedPlaces.map((place) => (
                         <div key={place.id}>
-                            <h3 className="text-center py-8">{place.name}</h3>
+                            <h3 className="text-center py-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[744px]:py-4">{place.name}</h3>
 
                             <div className="flex flex-col gap-5">
                                 {/* Row 1 */}
-                                <div className="grid [grid-template-columns:42.875%_20%_34%] gap-5">
+                                <div className="grid [grid-template-columns:42.875%_20%_34%] gap-5 max-[744px]:grid-cols-1">
                                     {place.images.slice(0, 3).map((imgObj, i) => (
                                         <img
                                             key={imgObj.id}
                                             src={imgObj.image}
                                             alt={`image-${i}`}
-                                            className="w-full h-[400px] object-cover rounded-3xl"
+                                            className="w-full h-[400px] object-cover rounded-3xl max-[1024px]:h-[220px] max-[744px]:h-auto"
                                             onClick={() => imageClickHandler(place.id)}
                                         />
                                     ))}
                                 </div>
 
                                 {/* Row 2 */}
-                                <div className="grid [grid-template-columns:1fr_2fr_1fr] gap-5">
+                                <div className="grid [grid-template-columns:1fr_2fr_1fr] gap-5 max-[744px]:grid-cols-1">
                                     {place.images.slice(3, 6).map((imgObj, i) => (
                                         <img
                                             key={imgObj.id}
                                             src={imgObj.image}
                                             alt={`image-${i + 3}`}
-                                            className="w-full h-[400px] object-cover rounded-3xl"
+                                            className="w-full h-[400px] object-cover rounded-3xl max-[1024px]:h-[220px] max-[744px]:h-auto"
                                             onClick={() => imageClickHandler(place.id)}
                                         />
                                     ))}
                                 </div>
 
                                 {/* Row 3 */}
-                                <div className="grid grid-cols-2 gap-5">
+                                <div className="grid grid-cols-2 gap-5 max-[744px]:grid-cols-1">
                                     {place.images.slice(6, 8).map((imgObj, i) => (
                                         <img
                                             key={imgObj.id}
                                             src={imgObj.image}
                                             alt={`image-${i + 6}`}
-                                            className="w-full h-[400px] object-cover rounded-3xl"
+                                            className="w-full h-[400px] object-cover rounded-3xl max-[1024px]:h-[220px] max-[744px]:h-auto"
                                             onClick={() => imageClickHandler(place.id)}
                                         />
                                     ))}
@@ -168,13 +168,13 @@ export const Gallery = () => {
                         >
                             <CarouselContent>
                                 {selectedPlaceImages.map((imageObj) => (
-                                    <CarouselItem key={imageObj.id} className="w-full h-[700px]">
+                                    <CarouselItem key={imageObj.id} className="w-full h-[700px] max-[1024px]:h-auto">
                                         <img src={imageObj.image} className="w-full h-full object-cover rounded-3xl" alt="tour image" />
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
+                            <CarouselPrevious className="max-[1340px]:left-2" />
+                            <CarouselNext className="max-[1340px]:right-2" />
                         </Carousel>
                     </DialogContent>
                 </Dialog>

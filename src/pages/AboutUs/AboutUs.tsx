@@ -66,25 +66,25 @@ export const AboutUs = () => {
                 </Button>
             </Banner>
 
-            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[60px]">
+            <div className="max-w-screen-xl mx-auto pt-[32px] pb-[60px] max-[1320px]:px-5 max-[744px]:pb-8">
                 <div>
                     <Breadcrumbs />
                 </div>
 
-                <div className="pt-10 pb-8 px-[100px]">
-                    <h3 className="text-center pb-6">{historyData.title}</h3>
+                <div className="pt-10 pb-8 px-[100px] max-[1024px]:px-0 max-[744px]:py-8">
+                    <h3 className="text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[744px]:pb-4">{historyData.title}</h3>
 
-                    <p className="text-base text-gray pb-6">{historyData.text}</p>
+                    <p className="text-base text-gray pb-6 max-[744px]:pb-0">{historyData.text}</p>
                 </div>
 
-                <div className="pb-[100px]">
-                    <div className="grid grid-cols-[60%_40%] gap-5 pb-5">
+                <div className="pb-[100px] max-[744px]:pb-8">
+                    <div className="grid grid-cols-[59%_39.5%] gap-5 pb-5 max-[744px]:grid-cols-1">
                         {images?.slice(0, 2)?.map((imgObj) => (
                             <img key={imgObj.id} src={imgObj.image} className="w-full h-100 object-cover rounded-3xl" alt="team image" />
                         ))}
                     </div>
 
-                    <div className="grid grid-cols-[40%_60%] gap-5">
+                    <div className="grid grid-cols-[39.5%_59%] gap-5 max-[744px]:grid-cols-1">
                         {images?.slice(2, 4)?.map((imgObj) => (
                             <img key={imgObj.id} src={imgObj.image} className="w-full h-100 object-cover rounded-3xl" alt="team image" />
                         ))}
@@ -96,8 +96,8 @@ export const AboutUs = () => {
                 </div>
             </div>
 
-            <div className="pt-[60px] pb-[120px]">
-                <h3 className="text-center pb-8">Команда</h3>
+            <div className="pt-[60px] pb-[120px] max-[744px]:pb-8 max-[744px]:pt-0">
+                <h3 className="text-center pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px]">Команда</h3>
 
                 <div>
                     <Carousel
@@ -109,10 +109,10 @@ export const AboutUs = () => {
                     >
                         <CarouselContent>
                             {team?.map((member) => (
-                                <CarouselItem key={member.id} className="max-w-[570px] w-full">
+                                <CarouselItem key={member.id} className="max-w-[570px] w-full max-[744px]:max-w-[270px]">
                                     <div className="bg-[#F5F5F5] h-full p-5 border-[#E5E5E5] border-2 rounded-3xl">
-                                        <div className="flex items-center gap-4 pb-5">
-                                            <img src={member.image} className="w-20 h-20 rounded-full object-cover" alt="person image" />
+                                        <div className="flex items-center gap-4 pb-5 max-[744px]:flex-col">
+                                            <img src={member.image} className="w-[160px] h-[160px] rounded-full object-cover" alt="person image" />
 
                                             <p className="text-2xl font-semibold">{member.name}</p>
                                         </div>
