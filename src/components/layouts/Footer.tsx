@@ -110,13 +110,10 @@ export const Footer: FC = () => {
                                 <ReactMarkdown children={data.map} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
                             </div>
                         </div>
-                    {/* <div className='flex gap-x-[60px]'>
-                        
-                    </div> */}
                 </div>
 
-                <div className='flex items-center justify-between pt-[24px] border-t border-[#999999]'>
-                    <a href="#" className='text-sm text-white'>Политика конфиденциальности</a>
+                <div className='flex items-center justify-between pt-[24px] border-t border-[#999999] max-[744px]:flex-col max-[744px]:items-start'>
+                    <a href="#" className='text-sm text-white max-[744px]:pb-6'>Политика конфиденциальности</a>
 
                     <span className='text-sm text-white'>© 2016-2024 Kettik тур-оператор</span>
                 </div>

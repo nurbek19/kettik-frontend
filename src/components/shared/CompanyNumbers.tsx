@@ -113,7 +113,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                                 </svg>
 
                                 <span className='text-[#FA7436] text-[65px] font-bold max-[1024px]:text-[36px]'>{digits.amount_gids}</span>
-                                <p>профессиональных гидов</p>
+                                <p className='max-[744px]:break-all'>профессиональных гидов</p>
                             </div>
                         </div>
 

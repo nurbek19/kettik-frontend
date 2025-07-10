@@ -112,7 +112,7 @@ export const RequestForm = ({ textColor = 'light' }: { textColor: 'light' | 'dar
                         <Label htmlFor="agreement" className={`text-sm ${color}`}>Я даю согласие на обработку персональных данных</Label>
                     </div>
 
-                    <Button className="!bg-none !bg-[#999999] py-3 h-auto cursor-pointer" onClick={requestHandler}>
+                    <Button variant="secondary" className={`text-white text-base font-semibold py-3 h-auto cursor-pointer rounded-full disabled:opacity-100 ${(!name || !email || !phone || !agreement) ? '!bg-[#999999]' : 'button-gradient'}`} disabled={!name || !email || !phone || !agreement} onClick={requestHandler}>
                         {sendApplicationMutation.isPending ? 'Загрузка' : 'Отправить'}
                     </Button>
                 </div>
