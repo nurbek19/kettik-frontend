@@ -1,5 +1,5 @@
 import { RequestForm } from "../../components/shared/RequestForm";
-import bg from '../../assets/request-bg.png';
+import bg from '../../assets/request-section.jpeg';
 
 export const RequestSection = () => {
     return (
