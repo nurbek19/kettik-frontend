@@ -20,7 +20,7 @@ export default function Breadcrumbs() {
   const pathnames = location.pathname.split("/").filter(Boolean)
 
   return (
-    <Breadcrumb>
+    <Breadcrumb className="max-[744px]:hidden">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
