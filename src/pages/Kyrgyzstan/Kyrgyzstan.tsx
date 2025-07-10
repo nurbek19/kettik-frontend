@@ -38,7 +38,7 @@ export const Kyrgyzstan = () => {
     });
 
     const [emblaMainRef, emblaMainApi] = useEmblaCarousel({ loop: false });
-    const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
+    const [emblaThumbsRef] = useEmblaCarousel({
         containScroll: "keepSnaps",
         dragFree: true,
     });
