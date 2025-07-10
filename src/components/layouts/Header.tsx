@@ -13,7 +13,11 @@ import {
 import {
     Sheet,
     SheetTrigger,
+    SheetHeader,
+    SheetTitle,
+    SheetDescription,
     SheetContent,
+    SheetClose,
 } from "@/components/ui/sheet";
 import { RequestForm } from '../shared/RequestForm';
 
@@ -56,41 +60,60 @@ export const Header = () => {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="p-8 flex flex-col gap-6">
-                            <Link
-                                to="/tours"
-                                className='text-lg font-semibold'
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Туры
-                            </Link>
-                            <Link
-                                to="/about"
-                                className='text-lg font-semibold'
-                                onClick={() => setIsOpen(false)}
-                            >
-                                О нас
-                            </Link>
-                            <Link
-                                to="/kyrgyzstan"
-                                className='text-lg font-semibold'
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Кыргызстан
-                            </Link>
-                            <Link
-                                to="/gallery"
-                                className='text-lg font-semibold'
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Галерея
-                            </Link>
-                            <a
-                                href="#footer"
-                                className='text-lg font-semibold'
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Контакты
-                            </a>
+                            <SheetHeader className='p-0'>
+                                <SheetTitle />
+                                <SheetDescription />
+                            </SheetHeader>
+                            <SheetClose asChild>
+                                <Link
+                                    to="/tours"
+                                    className='text-lg font-semibold'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Туры
+                                </Link>
+                            </SheetClose>
+
+                            <SheetClose asChild>
+                                <Link
+                                    to="/about"
+                                    className='text-lg font-semibold'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    О нас
+                                </Link>
+                            </SheetClose>
+
+                            <SheetClose asChild>
+                                <Link
+                                    to="/kyrgyzstan"
+                                    className='text-lg font-semibold'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Кыргызстан
+                                </Link>
+                            </SheetClose>
+
+                            <SheetClose asChild>
+                                <Link
+                                    to="/gallery"
+                                    className='text-lg font-semibold'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Галерея
+                                </Link>
+                            </SheetClose>
+
+                            <SheetClose asChild>
+                                <a
+                                    href="#footer"
+                                    className='text-lg font-semibold'
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Контакты
+                                </a>
+                            </SheetClose>
+
                             <Button
                                 className='py-3 px-6 h-auto mt-4'
                                 onClick={() => {
