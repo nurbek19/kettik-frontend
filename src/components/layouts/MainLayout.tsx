@@ -1,20 +1,15 @@
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
 import { queryClient } from '@/lib/react-query'
 
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { ScrollToTopButton } from '../shared/ScrollToTopButton'
 
 import { aboutUsPageApi } from '@/api/aboutUs'
 
 
 export const MainLayout = () => {
-    const t = useQuery({
-        queryKey: ['about', 'banner'],
-        queryFn: aboutUsPageApi.getBanner,
-    });
-
     useEffect(() => {
         // queryClient.prefetchQuery({
         //     queryKey: ['about', 'banner'],
@@ -45,6 +40,7 @@ export const MainLayout = () => {
             <Outlet />
 
             <Footer />
+            <ScrollToTopButton />
         </div>
     )
 }
