@@ -104,7 +104,7 @@ export const AboutUsSection = () => {
             </div>
 
 
-            <div className="max-w-screen-xl mx-auto pt-15 pb-[120px] max-[1100px]:py-8">
+            <div className="relative max-w-screen-xl mx-auto pt-15 pb-[120px] max-[1100px]:py-8">
                 <h3 className="text-center pb-10  max-[1024px]:text-[36px] max-[744px]:text-[28px]">Отзывы</h3>
 
                 <div className="flex justify-center">
@@ -149,6 +149,16 @@ export const AboutUsSection = () => {
                             <CarouselNext className="max-[1200px]:right-2" />
                         </Carousel>
                     </div>
+                </div>
+
+                <div className="absolute right-0 top-15 max-[1200px]:static max-[1200px]:pt-6 max-[1200px]:flex max-[1200px]:justify-end max-[1200px]:px-5">
+                    <a
+                        href="https://www.google.com/maps/place/Kettik/@42.8694801,74.6012902,17z/data=!3m1!5s0x389eb7da57b364d7:0x737cc70226bc7ebd!4m8!3m7!1s0x389eb729cbec1e73:0x8e2b13ff36a21043!8m2!3d42.8694801!4d74.6038651!9m1!1b1!16s%2Fg%2F11rfcw2cz_?entry=ttu&g_ep=EgoyMDI1MDcwNy4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank"
+                        className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3"
+                    >
+                        Все отзывы
+                    </a>
                 </div>
             </div>
         </div>
