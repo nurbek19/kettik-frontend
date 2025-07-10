@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
     Carousel,
@@ -35,6 +35,12 @@ export const Gallery = () => {
         queryKey: ['gallery', 'places'],
         queryFn: galleryApi.getPlaces,
     });
+
+    useEffect(() => {
+        if (places?.length) {
+            setSelected([places[0].name]);
+        }
+    }, [places]);
 
     const locations = useMemo(() => {
         if (!places) {
@@ -100,7 +106,7 @@ export const Gallery = () => {
             <div className="max-w-screen-xl mx-auto pt-[32px] pb-[120px] max-[1320px]:px-5 max-[744px]:py-8">
                 <Breadcrumbs />
 
-                <LocationFilter locations={locations} onChange={(options) => setSelected(options)} />
+                <LocationFilter locations={locations} defaultValues={selected} onChange={(options) => setSelected(options)} />
 
                 <div className="pb-15 pt-7 max-[744px]:py-0">
                     {!selectedPlaces.length && (

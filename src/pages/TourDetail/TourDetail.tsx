@@ -162,7 +162,7 @@ export const TourDetail = () => {
             <div className="max-w-screen-xl mx-auto pt-[90px] pb-[120px] max-[1320px]:px-5 max-[1024px]:py-8">
                 <div className='pb-[120px] max-[1024px]:pb-8'>
                     <h3 className='text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Программа тура</h3>
-                    <h5 className='text-center pb-6 max-[744px]:text-[22px]'>Продолжительность тура 4 дня</h5>
+                    <h5 className='text-center pb-6 max-[744px]:text-[22px]'>Продолжительность тура {tour.duration} дня</h5>
 
                     {tour.programs?.map((program) => (
                         <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={program.id}>

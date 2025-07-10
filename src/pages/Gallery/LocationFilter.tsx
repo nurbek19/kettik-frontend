@@ -1,11 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
 
 
-export default function LocationFilter({ locations = [], onChange }: { onChange?: (locations: string[]) => void; locations: string[] }) {
-  const [selected, setSelected] = useState<string[]>([])
+export default function LocationFilter(
+  { locations = [], onChange, defaultValues = [] }: { onChange?: (locations: string[]) => void; locations: string[], defaultValues: string[] }
+) {
+  const [selected, setSelected] = useState<string[]>([]);
+
+useEffect(() => {
+  setSelected(defaultValues);
+}, [defaultValues])
 
   const toggleLocation = (location: string) => {
     const isSelected = selected.includes(location)
