@@ -108,16 +108,16 @@ export const AboutUsSection = () => {
                 <h3 className="text-center pb-10  max-[1024px]:text-[36px] max-[744px]:text-[28px]">Отзывы</h3>
 
                 <div className="flex justify-center">
-                    <div className="max-w-[1090px] w-full max-[1200px]:max-w-full">
+                    <div className="max-w-[1094px] w-full max-[1200px]:max-w-full">
                         <Carousel
                             opts={{
                                 // align: "center"
                             }}
-                            className="w-full max-[1200px]:px-12"
+                            className="w-full [&>div]:py-2 max-[1200px]:px-12"
                         >
                             <CarouselContent>
                                 {reviews?.slice(0, 20).map((review) => (
-                                    <CarouselItem key={review.id} className="md:basis-1/2 lg:basis-1/3 pl-5">
+                                    <CarouselItem key={review.id} className="md:basis-1/2 lg:basis-1/3 pl-5 pr-1">
                                         <div className="bg-[#F5F5F5] rounded-sm shadow-md p-5">
                                             <div className="flex items-center gap-3">
                                                 <img
