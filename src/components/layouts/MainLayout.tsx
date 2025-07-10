@@ -4,7 +4,7 @@ import { queryClient } from '@/lib/react-query'
 
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { ScrollToTopButton } from '../shared/ScrollToTopButton'
+import { FixedButtons } from '../shared/FixedButtons'
 
 import { aboutUsPageApi } from '@/api/aboutUs'
 
@@ -40,7 +40,7 @@ export const MainLayout = () => {
             <Outlet />
 
             <Footer />
-            <ScrollToTopButton />
+            <FixedButtons />
         </div>
     )
 }
