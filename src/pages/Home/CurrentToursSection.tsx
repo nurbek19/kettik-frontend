@@ -7,20 +7,23 @@ import { type ToursDto } from "@/api/toursApi";
 
 export const CurrentToursSection = ({ tours }: { tours: ToursDto }) => {
     return (
-        <div className="max-w-screen-xl mx-auto pt-[120px] pb-[90px] max-[1320px]:px-5 max-[1100px]:py-8">
+        <div className="max-w-[1320px] mx-auto pt-[120px] pb-[90px] max-[1100px]:py-8">
             <div className="relative">
-                <h3 className="text-center pb-5 max-[1024px]:text-[36px] max-[744px]:text-[28px]">Актуальные туры</h3>
+                <h3 className="text-center max-[1024px]:text-[36px] max-[744px]:text-[28px] px-5">Актуальные туры</h3>
 
-                <ScrollArea className="w-full whitespace-nowrap pb-5">
-                    <div className="grid grid-cols-4 gap-5 w-[1240px]">
+                <ScrollArea className="w-full [&>div]:p-5">
+                    <div className="grid grid-cols-4 gap-5 w-[1280px]">
                         {tours?.results?.slice(0, 4).map((tour) => (
+                            <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`tours/${tour.id}`} />
+                        ))}
+                        {tours?.results?.slice(0, 1).map((tour) => (
                             <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`tours/${tour.id}`} />
                         ))}
                     </div>
                     <ScrollBar orientation="horizontal" />
                 </ScrollArea>
 
-                <div className="absolute right-0 top-3 max-[1200px]:static max-[1200px]:pt-6 max-[1200px]:flex max-[1200px]:justify-end">
+                <div className="absolute right-5 top-3 max-[1200px]:static max-[1200px]:flex max-[1200px]:justify-end max-[1200px]:px-5">
                     <Link to="tours" className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3">
                         Все туры
 
