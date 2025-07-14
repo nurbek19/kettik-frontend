@@ -54,4 +54,7 @@ export const homePageApi = {
     getReviews: ({ signal }: { signal: AbortSignal }) => {
         return fetch(`${BASE_URL}/v1/main/page/google/reviews/`, { signal }).then((res) => res.json() as Promise<ReviewDto[]>);
     },
+    getSliderImages: ({ signal }: { signal: AbortSignal }) => {
+        return fetch(`${BASE_URL}/v1/main/page/image/slider/`, { signal }).then((res) => res.json() as Promise<Array<{ id: string; image: string; }>>);
+    },
 }

@@ -20,8 +20,8 @@ export const CurrentToursSection = ({ tours }: { tours: ToursDto }) => {
                     <ScrollBar orientation="horizontal" />
                 </ScrollArea>
 
-                <div className="absolute right-5 top-3 max-[1200px]:static max-[1200px]:flex max-[1200px]:justify-end max-[1200px]:px-5">
-                    <Link to="tours" className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3">
+                <div className="absolute right-5 top-3 max-[1200px]:static max-[1200px]:flex max-[1200px]:justify-end max-[1200px]:px-5  max-[744px]:w-full">
+                    <Link to="tours" className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:justify-center">
                         Все туры
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">

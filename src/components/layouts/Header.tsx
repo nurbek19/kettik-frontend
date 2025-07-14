@@ -9,6 +9,8 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
+    DialogFooter,
+    DialogClose,
 } from "@/components/ui/dialog";
 import {
     Sheet,
@@ -24,13 +26,18 @@ import { RequestForm } from '../shared/RequestForm';
 import { Menu } from "lucide-react";
 
 import logo from '../../assets/logo.png';
+import check from '../../assets/check.png';
+import close from '../../assets/x-icon.png';
 
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
+    const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
+
     return (
-        <header className='header fixed top-0 z-1 max-w-[1280px] w-full max-[1300px]:pt-[18px] max-[1300px]:px-5'>
+        <header className='header fixed top-0 z-2 max-w-[1280px] w-full max-[1300px]:pt-[18px] max-[1300px]:px-5'>
             <div className='header-shadow flex justify-between items-center gap-5 mx-auto bg-white rounded-full w-full px-[20px] py-[14px] max-[744px]:py-2 max-[744px]:px-3'>
                 <div className='max-[1200px]:grow'>
                     <Link to="/">
@@ -39,11 +46,11 @@ export const Header = () => {
                 </div>
 
                 <div className='flex gap-x-[40px] max-[1200px]:hidden'>
-                    <Link to="tours" className='text-xl font-semibold text-black'>Туры</Link>
-                    <Link to="about" className='text-xl font-semibold text-black'>О нас</Link>
-                    <Link to="kyrgyzstan" className='text-xl font-semibold text-black'>Кыргызстан</Link>
-                    <Link to="/gallery" className='text-xl font-semibold text-black'>Галерея</Link>
-                    <a href='#footer' className='text-xl font-semibold text-black'>Контакты</a>
+                    <Link to="tours" className='text-xl font-semibold text-black hover:underline'>Туры</Link>
+                    <Link to="about" className='text-xl font-semibold text-black hover:underline'>О нас</Link>
+                    <Link to="kyrgyzstan" className='text-xl font-semibold text-black hover:underline'>Кыргызстан</Link>
+                    <Link to="/gallery" className='text-xl font-semibold text-black hover:underline'>Галерея</Link>
+                    <a href='#footer' className='text-xl font-semibold text-black hover:underline'>Контакты</a>
                 </div>
 
                 {/* <div>
@@ -60,6 +67,7 @@ export const Header = () => {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="p-8 flex flex-col gap-6">
+
                             <SheetHeader className='p-0'>
                                 <SheetTitle />
                                 <SheetDescription />
@@ -134,7 +142,47 @@ export const Header = () => {
                                 Первый шаг к новому приключению — просто оставьте заявку!
                             </DialogDescription>
                         </DialogHeader>
-                        <RequestForm textColor='dark' />
+                        <RequestForm
+                            textColor='dark'
+                            setIsErrorDialogOpen={() => { setIsErrorDialogOpen(true); setIsOpen(false); }}
+                            setIsSuccessDialogOpen={() => { setIsSuccessDialogOpen(true); setIsOpen(false); }}
+                        />
+                    </DialogContent>
+                </Dialog>
+
+                <Dialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
+                    <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl" style={{ backgroundImage: `url(${check})` }}>
+                        <DialogHeader className="pr-[170px]">
+                            <DialogTitle className="text-[40px] font-bold text-[#4CAF50]">Заявка отправлена!</DialogTitle>
+                            <DialogDescription className="text-base text-gray">
+                                Ваш запрос успешно отправлен. Спасибо! Мы скоро свяжемся с вами.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <DialogFooter className="sm:justify-start">
+                            <DialogClose asChild>
+                                <Button type="button" variant="secondary" className="bg-[#262626] text-white rounded-full px-13 py-3 h-auto">
+                                    Закрыть
+                                </Button>
+                            </DialogClose>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
+
+                <Dialog open={isErrorDialogOpen} onOpenChange={setIsErrorDialogOpen}>
+                    <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl" style={{ backgroundImage: `url(${close})` }}>
+                        <DialogHeader className="pr-[170px]">
+                            <DialogTitle className="text-[40px] font-bold text-[#D32F2F]">Ошибка отправки!</DialogTitle>
+                            <DialogDescription className="text-base text-gray">
+                                Что-то пошло не так. Пожалуйста попробуйте ещё раз или свяжитесь с поддержкой.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <DialogFooter className="sm:justify-start">
+                            <DialogClose asChild>
+                                <Button type="button" variant="secondary" className="bg-[#262626] text-white rounded-full px-13 py-3 h-auto">
+                                    Закрыть
+                                </Button>
+                            </DialogClose>
+                        </DialogFooter>
                     </DialogContent>
                 </Dialog>
             </div>

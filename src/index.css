@@ -242,6 +242,10 @@ button:focus-visible {
   border-radius: 50px;
 }
 
+.button-gradient:hover {
+  background: #00C665;
+}
+
 .banner {
   background: url('./assets/banner1.png') 0 0 no-repeat;
   background-size: cover;
@@ -271,4 +275,12 @@ button:focus-visible {
 .react-tel-input .country-list {
   width: 354px !important;
   border-radius: 4px !important;
+}
+
+.oval::before {
+  clip-path: ellipse(50% 100% at 50% 0%);
+}
+
+.oval::after {
+  clip-path: ellipse(50% 100% at 50% 100%);
 }

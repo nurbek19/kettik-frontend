@@ -146,7 +146,7 @@ export const TourDetail = () => {
                         align: "center",
                         loop: true
                     }}
-                    className="w-full"
+                    className="w-full oval before:content-[''] before:absolute before:-left-0 before:-right-0 before:h-[40px] before:bg-white before:z-1 after:content-[''] after:absolute after:-left-0 after:-right-0 after:bottom-0 after:h-[40px] after:bg-white after:z-1"
                 >
                     <CarouselContent>
                         {tour.images.map((imgObj) => (
@@ -164,10 +164,10 @@ export const TourDetail = () => {
                     <h3 className='text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Программа тура</h3>
                     <h5 className='text-center pb-6 max-[744px]:text-[22px]'>Продолжительность тура {tour.duration} дня</h5>
 
-                    {tour.programs?.map((program) => (
+                    {tour.programs?.map((program, index) => (
                         <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={program.id}>
-                            <div className="relative max-w-[370px] w-full h-[300px] pr-[65px] border-r-2 border-green before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full before:top-[50%] before:right-[-10px] before:bg-green before:translate-y-[-50%] max-[744px]:before:hidden max-[744px]:border-r-0 max-[744px]:pr-0 max-[744px]:h-[255px]">
-                                <img src={program.image} className='w-full h-full object-cover rounded-3xl' alt="tour image" />
+                            <div className="relative max-w-[370px] w-full pr-[65px] border-r-2 border-green before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full before:top-[50%] before:right-[-10px] before:bg-green before:translate-y-[-50%] max-[744px]:before:hidden max-[744px]:border-r-0 max-[744px]:pr-0">
+                                <img src={program.image} className='w-full h-[300px] object-cover rounded-3xl max-[744px]:h-[255px]' alt="tour image" />
                             </div>
 
                             <div>
@@ -182,8 +182,12 @@ export const TourDetail = () => {
                                 </div> */}
                             </div>
 
-                            <div className='h-15 border-r-2 border-green gap-x-15 max-[744px]:hidden' />
-                            <div className='h-15 gap-x-15 max-[744px]:hidden' />
+                            {(index !== (tour.programs?.length - 1)) && (
+                                <>
+                                    <div className='h-15 border-r-2 border-green gap-x-15 max-[744px]:hidden' />
+                                    <div className='h-15 gap-x-15 max-[744px]:hidden' />
+                                </>
+                            )}
                         </div>
                     ))}
                 </div>

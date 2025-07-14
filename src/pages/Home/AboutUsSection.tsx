@@ -15,9 +15,6 @@ import { homePageApi } from "@/api/homePage";
 
 import { formatDateRu } from "@/lib/utils";
 
-import banner from '../../assets/image.png';
-
-
 export const AboutUsSection = () => {
     const { data: digits } = useQuery({
         queryKey: ['about', 'digits'],
@@ -37,6 +34,11 @@ export const AboutUsSection = () => {
     const { data: reviews } = useQuery({
         queryKey: ['home', 'reviews'],
         queryFn: homePageApi.getReviews,
+    });
+
+    const { data: sliderImages } = useQuery({
+        queryKey: ['home', 'slider-images'],
+        queryFn: homePageApi.getSliderImages,
     });
 
     if (!digits) {
@@ -66,7 +68,7 @@ export const AboutUsSection = () => {
 
                         <p className="text-gray pb-6">{historyData?.text}</p>
 
-                        <Link to="about" className="button-gradient inline-flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3">
+                        <Link to="about" className="button-gradient inline-flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:justify-center">
                             Подробнее о нас
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
@@ -85,21 +87,23 @@ export const AboutUsSection = () => {
                 <h3 className="text-center pb-7 max-[1024px]:text-[36px] max-[744px]:text-[28px]">Поймай дух путешествия!</h3>
 
                 <div className="">
-                    <Carousel
-                        opts={{
-                            align: "center",
-                            loop: true
-                        }}
-                        className="w-full"
-                    >
-                        <CarouselContent>
-                            {Array.from({ length: 10 }).map((_, index) => (
-                                <CarouselItem key={index} className="max-w-[410px] w-full h-[400px] max-[1024px]:max-w-[300px] max-[1024px]:h-[290px] max-[744px]:max-w-[260px] max-[744px]:h-[250px]">
-                                    <img src={banner} className='w-full h-full object-cover' alt="tour image" />
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                    </Carousel>
+                    {Boolean(sliderImages?.length) && (
+                        <Carousel
+                            opts={{
+                                align: "center",
+                                loop: true
+                            }}
+                            className="w-full oval before:content-[''] before:absolute before:-left-5 before:-right-5 before:h-[40px] before:bg-white before:z-1 after:content-[''] after:absolute after:-left-5 after:-right-5 after:bottom-0 after:h-[40px] after:bg-white after:z-1"
+                        >
+                            <CarouselContent className="">
+                                {sliderImages?.map((imgObj) => (
+                                    <CarouselItem key={imgObj.id} className="max-w-[410px] w-full h-[400px] max-[1024px]:max-w-[300px] max-[1024px]:h-[290px] max-[744px]:max-w-[260px] max-[744px]:h-[250px]">
+                                        <img src={imgObj.image} className='w-full h-full object-cover' alt="tour image" />
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                        </Carousel>
+                    )}
                 </div>
             </div>
 
@@ -155,7 +159,7 @@ export const AboutUsSection = () => {
                     <a
                         href="https://www.google.com/maps/place/Kettik/@42.8694801,74.6012902,17z/data=!3m1!5s0x389eb7da57b364d7:0x737cc70226bc7ebd!4m8!3m7!1s0x389eb729cbec1e73:0x8e2b13ff36a21043!8m2!3d42.8694801!4d74.6038651!9m1!1b1!16s%2Fg%2F11rfcw2cz_?entry=ttu&g_ep=EgoyMDI1MDcwNy4wIKXMDSoASAFQAw%3D%3D"
                         target="_blank"
-                        className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3"
+                        className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:justify-center"
                     >
                         Все отзывы
                     </a>
