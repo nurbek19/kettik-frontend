@@ -48,14 +48,14 @@ export const Tours = () => {
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
 
-    if (isBannerPending || isToursPending) {
+    if (isBannerPending) {
         return (
             <Loader />
         )
     }
 
 
-    if (!banner || !tours) {
+    if (!banner) {
         return null;
     }
 
@@ -131,11 +131,26 @@ export const Tours = () => {
                 </ScrollArea>
 
 
-                <div className="grid grid-cols-4 gap-5 pt-3 max-[1024px]:grid-cols-2 max-[744px]:grid-cols-1">
-                    {tours.results?.map((tour) => (
-                        <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`${tour.id}`} />
-                    ))}
-                </div>
+                {isToursPending ? (
+                    <div className="p-10 flex justify-center">
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' className="w-25 h-auto">
+                            <circle fill='#005A2E' stroke='#005A2E' strokeWidth='21' r='15' cx='40' cy='100'>
+                                <animate attributeName='opacity' calcMode='spline' dur='2' values='1;0;1;' keySplines='.5 0 .5 1;.5 0 .5 1' repeatCount='indefinite' begin='-.4'></animate>
+                            </circle>
+                            <circle fill='#005A2E' stroke='#005A2E' strokeWidth='21' r='15' cx='100' cy='100'>
+                                <animate attributeName='opacity' calcMode='spline' dur='2' values='1;0;1;' keySplines='.5 0 .5 1;.5 0 .5 1' repeatCount='indefinite' begin='-.2'></animate>
+                            </circle>
+                            <circle fill='#005A2E' stroke='#005A2E' strokeWidth='21' r='15' cx='160' cy='100'>
+                                <animate attributeName='opacity' calcMode='spline' dur='2' values='1;0;1;' keySplines='.5 0 .5 1;.5 0 .5 1' repeatCount='indefinite' begin='0'></animate>
+                            </circle></svg>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-4 gap-5 pt-3 max-[1024px]:grid-cols-2 max-[744px]:grid-cols-1">
+                        {tours?.results?.map((tour) => (
+                            <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`${tour.id}`} />
+                        ))}
+                    </div>
+                )}
 
                 {totalPages > 1 && (
                     <Pagination className="mt-6">
