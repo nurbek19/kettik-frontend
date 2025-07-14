@@ -119,7 +119,10 @@ export const AboutUs = () => {
                                         <div className="flex items-center gap-4 pb-5 max-[744px]:flex-col">
                                             <img src={member.image} className="w-[160px] h-[160px] rounded-full object-cover" alt="person image" />
 
+                                            <div>
                                             <p className="text-2xl font-semibold">{member.name}</p>
+                                            <span className="font-semibold">{member.duty}</span>
+                                            </div>
                                         </div>
 
                                         <p className="text-base text-gray pb-5">{member.text}</p>

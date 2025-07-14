@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { queryClient } from '@/lib/react-query'
+import { useLocation } from 'react-router-dom'
 
 import { Header } from './Header'
 import { Footer } from './Footer'
@@ -31,6 +32,15 @@ export const MainLayout = () => {
             queryFn: aboutUsPageApi.getTeams,
         });
     }, []);
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant'
+        });
+    }, [pathname]);
 
 
     return (

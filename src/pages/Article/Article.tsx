@@ -52,6 +52,13 @@ export const Article = () => {
 
                     <h5 className="text-gray pt-4 pb-6 text-center px-25 max-[1024px]:px-0">{currentArticle.title}</h5>
                     <p className="text-base text-gray px-25 max-[1024px]:px-0">{currentArticle.text}</p>
+
+                    {currentArticle.extra?.map((extraInf) => (
+                        <div key={extraInf.id} className='flex flex-col gap-15 pt-8 max-[1024px]:gap-8'>
+                            <img src={extraInf.image} className='w-full h-auto rounded-3xl' alt="article image" />
+                            <p className="text-base text-gray px-25 max-[1024px]:px-0">{extraInf.text}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@ import { RequestForm } from '../shared/RequestForm';
 
 import { Menu } from "lucide-react";
 
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.svg';
 import check from '../../assets/check.png';
 import close from '../../assets/x-icon.png';
 
@@ -151,16 +151,16 @@ export const Header = () => {
                 </Dialog>
 
                 <Dialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
-                    <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl" style={{ backgroundImage: `url(${check})` }}>
-                        <DialogHeader className="pr-[170px]">
-                            <DialogTitle className="text-[40px] font-bold text-[#4CAF50]">Заявка отправлена!</DialogTitle>
+                    <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl max-[744px]:bg-size-[300px_auto] max-[744px]:bg-right-center" style={{ backgroundImage: `url(${check})` }}>
+                        <DialogHeader className="text-left pr-[170px] max-[744px]:pr-[30%]">
+                            <DialogTitle className="text-[40px] font-bold text-[#4CAF50] max-[744px]:text-[28px]">Заявка отправлена!</DialogTitle>
                             <DialogDescription className="text-base text-gray">
                                 Ваш запрос успешно отправлен. Спасибо! Мы скоро свяжемся с вами.
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
-                                <Button type="button" variant="secondary" className="bg-[#262626] text-white rounded-full px-13 py-3 h-auto">
+                                <Button type="button" variant="secondary" className="bg-[#262626] text-white rounded-full px-13 py-3 max-[]">
                                     Закрыть
                                 </Button>
                             </DialogClose>
@@ -169,9 +169,9 @@ export const Header = () => {
                 </Dialog>
 
                 <Dialog open={isErrorDialogOpen} onOpenChange={setIsErrorDialogOpen}>
-                    <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl" style={{ backgroundImage: `url(${close})` }}>
-                        <DialogHeader className="pr-[170px]">
-                            <DialogTitle className="text-[40px] font-bold text-[#D32F2F]">Ошибка отправки!</DialogTitle>
+                    <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl max-[744px]:bg-size-[300px_auto] max-[744px]:bg-right-center" style={{ backgroundImage: `url(${close})` }}>
+                        <DialogHeader className="text-left pr-[170px] max-[744px]:pr-[30%]">
+                            <DialogTitle className="text-[40px] font-bold text-[#D32F2F] max-[744px]:text-[28px]">Ошибка отправки!</DialogTitle>
                             <DialogDescription className="text-base text-gray">
                                 Что-то пошло не так. Пожалуйста попробуйте ещё раз или свяжитесь с поддержкой.
                             </DialogDescription>

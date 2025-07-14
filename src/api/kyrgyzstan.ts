@@ -12,7 +12,8 @@ export type ArticlesDto = {
     image: string,
     title: string,
     text: string,
-    created_at: string
+    created_at: string;
+    extra: Array<{ id: string; image: string; text: string; }>
     }>
   }
 

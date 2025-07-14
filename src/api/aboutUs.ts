@@ -15,7 +15,9 @@ export type DigitsDto = {
     years: number,
     amount_tourist: number,
     amount_paths: number,
-    amount_gids: number
+    amount_gids: number,
+    background_image: string,
+
 }
 
 export type TeamDto = {
@@ -23,7 +25,7 @@ export type TeamDto = {
     name: string,
     image: string,
     text: string,
-    phone: string 
+    duty: string 
 }
 
 export type AboutImageDto = {

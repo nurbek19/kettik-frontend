@@ -1,6 +1,5 @@
 
 import type { DigitsDto } from '@/api/aboutUs';
-import banner from '../../assets/image.png'
 
 export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
     return (
@@ -118,7 +117,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                         </div>
 
                         <div>
-                            <img src={banner} className='w-full h-full object-cover rounded-3xl' alt="company image" />
+                            <img src={digits.background_image} className='w-full h-full object-cover rounded-3xl' alt="company image" />
                         </div>
                     </div>
                 </div>

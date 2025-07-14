@@ -383,7 +383,7 @@ export const Kyrgyzstan = () => {
                         if ((i + 1) % 2 === 0) {
                             return (
                                 <Link to={article.id} key={article.id} className="grid grid-cols-2 gap-5 pb-15 max-[1100px]:grid-cols-1">
-                                    <div>
+                                    <div className=" max-[744px]:order-2">
                                         <span className="flex items-center gap-1 text-base text-[#999]">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <mask id="mask0_188_6950" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
@@ -399,10 +399,17 @@ export const Kyrgyzstan = () => {
                                         </span>
 
                                         <h5 className="text-gray pb-6">{article.title}</h5>
-                                        <p className="text-base text-gray line-clamp-11">{article.text}</p>
+                                        <p className="text-base text-gray line-clamp-6">{article.text}</p>
+
+                                        <Button variant="outline" className="text-green font-semibold text-base h-auto !px-12 py-3 rounded-full border-green border-2 mt-4">
+                                        Подробнее
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+                                            <path d="M8.19226 2.06586C7.78966 1.96844 7.38432 2.21584 7.2869 2.61843C7.18949 3.02103 7.43688 3.42637 7.83947 3.52379L8.19226 2.06586ZM14.8861 5.22891C15.2887 5.32633 15.694 5.07894 15.7915 4.67634C15.8889 4.27375 15.6415 3.86841 15.2389 3.77099L14.8861 5.22891ZM15.782 4.71167C15.8989 4.31431 15.6716 3.89739 15.2742 3.78045C14.8769 3.66352 14.4599 3.89086 14.343 4.28823L15.782 4.71167ZM12.2964 11.2434C12.1794 11.6407 12.4068 12.0576 12.8041 12.1746C13.2015 12.2915 13.6184 12.0642 13.7354 11.6668L12.2964 11.2434ZM15.4375 5.14947C15.7962 4.94236 15.9191 4.48367 15.712 4.12495C15.5049 3.76623 15.0462 3.64333 14.6875 3.85043L15.4375 5.14947ZM2.56314 10.8504C2.20442 11.0575 2.08152 11.5162 2.28862 11.875C2.49573 12.2337 2.95442 12.3566 3.31314 12.1495L2.56314 10.8504ZM8.01587 2.79482L7.83947 3.52379L14.8861 5.22891L15.0625 4.49995L15.2389 3.77099L8.19226 2.06586L8.01587 2.79482ZM15.0625 4.49995L14.343 4.28823L12.2964 11.2434L13.0159 11.4551L13.7354 11.6668L15.782 4.71167L15.0625 4.49995ZM15.0625 4.49995L14.6875 3.85043L2.56314 10.8504L2.93814 11.5L3.31314 12.1495L15.4375 5.14947L15.0625 4.49995Z" fill="#005A2E" />
+                                        </svg>
+                                    </Button>
                                     </div>
 
-                                    <div className="h-[400px]">
+                                    <div className="h-[400px] max-[744px]:order-1">
                                         <img src={article.image} className="w-full h-full object-cover rounded-3xl" alt="news image" />
                                     </div>
                                 </Link>
