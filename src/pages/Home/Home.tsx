@@ -18,7 +18,7 @@ export const Home = () => {
 
     const { data: tours, isPending: isToursPending } = useQuery({
         queryKey: ['tours', 'list'],
-        queryFn: toursApi.getTours,
+        queryFn: (meta) => toursApi.getTours(meta, { limit: 4, offset: 0, max_days: null, min_days: null }),
     });
 
     if (isBannerPending || isToursPending) {
