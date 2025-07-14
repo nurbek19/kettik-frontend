@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import ReactMarkdown from "react-markdown";
@@ -10,7 +9,7 @@ import { homePageApi } from '@/api/homePage'
 import logo from '../../assets/logo-white.png'
 
 
-export const Footer: FC = () => {
+export const Footer = () => {
     const { data } = useQuery({
         queryKey: ['home', 'contacts'],
         queryFn: homePageApi.getContacts

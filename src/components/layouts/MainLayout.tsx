@@ -23,12 +23,12 @@ export const MainLayout = () => {
 
         queryClient.prefetchQuery({
             queryKey: ['about', 'digits'],
-        queryFn: aboutUsPageApi.getDigits,
+            queryFn: aboutUsPageApi.getDigits,
         });
 
         queryClient.prefetchQuery({
             queryKey: ['about', 'teams'],
-        queryFn: aboutUsPageApi.getTeams,
+            queryFn: aboutUsPageApi.getTeams,
         });
     }, []);
 

@@ -8,7 +8,6 @@ import { Banner } from "@/components/shared/Banner";
 import { Loader } from '@/components/shared/Loader';
 
 import Breadcrumbs from "@/components/shared/BreadCrumbs";
-import { Button } from "@/components/ui/button";
 import {
     Carousel,
     CarouselContent,
@@ -23,6 +22,7 @@ import {
 } from "@/components/ui/accordion"
 
 import { toursApi } from '@/api/toursApi';
+import { homePageApi } from '@/api/homePage';
 
 export const TourDetail = () => {
     const { id } = useParams();
@@ -38,6 +38,11 @@ export const TourDetail = () => {
         queryFn: toursApi.getFAQ,
     });
 
+    const { data: contacts } = useQuery({
+        queryKey: ['home', 'contacts'],
+        queryFn: homePageApi.getContacts
+    });
+
     if (isTourPending) {
         return (
             <Loader />
@@ -51,7 +56,9 @@ export const TourDetail = () => {
     return (
         <div>
             <Banner img={tour.image} title={tour.title}>
-                <Button className='h-auto px-13 py-3'>Забронировать</Button>
+                <a href={contacts?.whatsapp} target='_blank' className="button-gradient text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:text-center">
+                    Забронировать
+                </a>
             </Banner>
 
             <div className="max-w-screen-xl mx-auto pt-[32px] pb-[90px] max-[1320px]:px-5 max-[1024px]:py-8">
@@ -352,13 +359,13 @@ export const TourDetail = () => {
                     <h3 className='pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Маршрут</h3>
                     <p className='text-gray text-center pb-6'>Этот маршрут — настоящее приключение сквозь сердце Центральной Азии: меняющиеся пейзажи, кочевые традиции незабываемая атмосфера свободы на просторах Кыргызстана.</p>
 
-                    <Button className='h-auto !px-12 py-3'>
+                    <a href={contacts?.whatsapp} target='_blank' className="button-gradient inline-flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:justify-center">
                         Получить консультацию
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path fillRule="evenodd" clipRule="evenodd" d="M15.0231 2.48241C13.4251 0.882459 11.2998 0.000934158 9.03554 0C4.36998 0 0.572864 3.79701 0.570996 8.46382C0.570355 9.95567 0.96006 11.4119 1.70082 12.6956L0.5 17.0818L4.98719 15.9047C6.22359 16.5791 7.61556 16.9345 9.03209 16.935H9.03567C13.7007 16.935 17.4982 13.1377 17.5 8.4706C17.501 6.20882 16.6213 4.08227 15.0231 2.48241ZM9.03554 15.5054H9.0326C7.77026 15.5049 6.53218 15.1657 5.45184 14.5248L5.19508 14.3722L2.5323 15.0708L3.24301 12.4746L3.07566 12.2085C2.37141 11.0883 1.99951 9.79363 2.00015 8.46433C2.00162 4.58538 5.15774 1.42958 9.03837 1.42958C10.9175 1.4302 12.684 2.16292 14.0122 3.49274C15.3405 4.82255 16.0715 6.59017 16.0709 8.47007C16.0693 12.3493 12.9134 15.5054 9.03554 15.5054ZM12.8946 10.2363C12.6831 10.1304 11.6433 9.61889 11.4493 9.54822C11.2556 9.47762 11.1144 9.44247 10.9736 9.65413C10.8325 9.86578 10.4273 10.3422 10.3038 10.4833C10.1804 10.6245 10.0572 10.6422 9.84561 10.5363C9.63409 10.4304 8.95264 10.207 8.14475 9.48648C7.51606 8.92567 7.09163 8.23308 6.96819 8.02146C6.84496 7.80959 6.96712 7.70616 7.06097 7.5898C7.28992 7.30549 7.51919 7.00741 7.58967 6.86636C7.66024 6.72516 7.62491 6.60164 7.57195 6.49582C7.51919 6.38999 7.09623 5.34896 6.92002 4.92536C6.74821 4.51313 6.57398 4.56878 6.44408 4.56235C6.32085 4.55618 6.17979 4.55493 6.03873 4.55493C5.89775 4.55493 5.66859 4.60778 5.47469 4.81964C5.28086 5.0314 4.73457 5.543 4.73457 6.58403C4.73457 7.62505 5.49241 8.63071 5.59813 8.77188C5.70382 8.91307 7.08955 11.0493 9.21111 11.9653C9.71571 12.1835 10.1096 12.3135 10.4169 12.4109C10.9236 12.5719 11.3845 12.5492 11.749 12.4947C12.1554 12.434 13.0002 11.9831 13.1766 11.4891C13.3528 10.995 13.3528 10.5716 13.2998 10.4833C13.2471 10.3951 13.106 10.3422 12.8946 10.2363Z" fill="white" />
                         </svg>
-                    </Button>
+                    </a>
 
                     <div className='w-full pt-6 [&>iframe]:w-full [&>iframe]:h-[600px] [&>iframe]:rounded-3xl max-[744px]:[&>iframe]:h-[300px]'>
                         <ReactMarkdown children={tour.map} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />

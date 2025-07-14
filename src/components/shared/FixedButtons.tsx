@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import { ChevronUp } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { homePageApi } from "@/api/homePage";
 
 export const FixedButtons = () => {
     const [showButton, setShowButton] = useState(false);
+
+    const { data } = useQuery({
+        queryKey: ['home', 'contacts'],
+        queryFn: homePageApi.getContacts
+    });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,7 +33,7 @@ export const FixedButtons = () => {
 
     return (
         <>
-            <a href="#" className="fixed bg-[#52C95B] bottom-20 right-[8%] w-[50px] h-[50px] rounded-full flex items-center justify-center z-2 max-[1320px]:right-5">
+            <a href={data?.whatsapp} target="_blank" className="fixed bg-[#52C95B] bottom-20 right-[8%] w-[50px] h-[50px] rounded-full flex items-center justify-center z-2 max-[1320px]:right-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                     <path d="M0.469375 10.8684C0.468859 12.7168 0.955609 14.5216 1.88116 16.1125L0.380859 21.5478L5.98673 20.0893C7.53725 20.9269 9.27448 21.3657 11.0399 21.3658H11.0445C16.8724 21.3658 21.6164 16.6603 21.6189 10.8766C21.62 8.07401 20.521 5.43861 18.5243 3.45589C16.528 1.47333 13.873 0.380918 11.0441 0.379639C5.21553 0.379639 0.471867 5.08491 0.469461 10.8684" fill="url(#paint0_linear_736_1746)" />
                     <path d="M0.0919531 10.8649C0.0913516 12.7799 0.595547 14.6493 1.55409 16.2971L0 21.9273L5.80688 20.4165C7.40687 21.2821 9.20829 21.7385 11.0413 21.7392H11.0461C17.083 21.7392 21.9974 16.8644 22 10.8736C22.001 7.97031 20.8625 5.24018 18.7945 3.18642C16.7263 1.13291 13.9763 0.0011938 11.0461 0C5.00809 0 0.0943594 4.87411 0.0919531 10.8649ZM3.55016 16.0133L3.33334 15.6718C2.42189 14.2337 1.94081 12.572 1.9415 10.8656C1.94339 5.88619 6.02748 1.83504 11.0495 1.83504C13.4815 1.83606 15.7671 2.77678 17.4862 4.48357C19.2052 6.19053 20.1511 8.4596 20.1505 10.8729C20.1483 15.8524 16.0641 19.904 11.0461 19.904H11.0425C9.40852 19.9032 7.80605 19.4678 6.40853 18.645L6.07595 18.4493L2.63003 19.3458L3.55016 16.0133Z" fill="url(#paint1_linear_736_1746)" />
