@@ -7,6 +7,7 @@ export type ToursBannerDto = {
 }
 
 export type ToursDto = {
+    count: number;
     results: Array<{
         id: string,
         video: string,
@@ -43,8 +44,14 @@ export const toursApi = {
     getBanner: ({ signal }: { signal: AbortSignal }) => {
         return fetch(`${BASE_URL}/v1/tours/banner/`, { signal }).then((res) => res.json() as Promise<ToursBannerDto>);
     },
-    getTours: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/tours/?limit=100&offset=1`, { signal }).then((res) => res.json() as Promise<ToursDto>);
+    getTours: ({ signal }: { signal: AbortSignal }, params: { limit: number, offset: number, min_days: number | null, max_days: number | null }) => {
+        let queryString = '';
+
+        if (params.max_days && params.max_days) {
+            queryString = `&max_days=${params.max_days}&min_days=${params.min_days}`;
+        }
+
+        return fetch(`${BASE_URL}/v1/tours/?limit=${params.limit}&offset=${params.offset}${queryString}`, { signal }).then((res) => res.json() as Promise<ToursDto>);
     },
     getTourById: ({ signal }: { signal: AbortSignal }, id?: string) => {
         return fetch(`${BASE_URL}/v1/tours/${id}`, { signal }).then((res) => res.json() as Promise<TourDetailDto>);
