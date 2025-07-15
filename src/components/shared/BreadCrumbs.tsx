@@ -8,30 +8,26 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
-const LABEL_MAP: Record<string, string> = {
-  "about": "О нас",
-  "gallery": "Галерея",
-  "tours": "Туры",
-  "kyrgyzstan": "Кыргызстан",
-}
+import { DICTIONARY } from "@/lib/dictionary";
 
 export default function Breadcrumbs() {
-  const location = useLocation()
-  const pathnames = location.pathname.split("/").filter(Boolean)
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter(Boolean);
+  const lang = localStorage.getItem('lang') ?? 'ru';
 
   return (
     <Breadcrumb className="max-[744px]:hidden">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link to="/" className="text-xl text-gray font-semibold">Главная</Link>
+            <Link to="/" className="text-xl text-gray font-semibold">{DICTIONARY[lang].home}</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
 
         {pathnames.map((segment, index) => {
           const isLast = index === pathnames.length - 1
           const path = "/" + pathnames.slice(0, index + 1).join("/")
-          const label = LABEL_MAP[segment] || 'Страница'
+          const label = DICTIONARY[lang][segment] || DICTIONARY[lang].sheet
 
           return (
             <Fragment key={path}>

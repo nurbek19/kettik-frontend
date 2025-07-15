@@ -12,6 +12,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 import { homePageApi } from "@/api/homePage";
 
+import { DICTIONARY } from "@/lib/dictionary";
+
 export const RequestForm = (
     { textColor = 'light', setIsSuccessDialogOpen, setIsErrorDialogOpen }: { textColor: 'light' | 'dark'; setIsSuccessDialogOpen: () => void; setIsErrorDialogOpen: () => void; }
 ) => {
@@ -20,6 +22,8 @@ export const RequestForm = (
     const [phone, setPhone] = useState('');
     const [comment, setComment] = useState('');
     const [agreement, setAgreement] = useState(false);
+
+    const lang = localStorage.getItem('lang') ?? 'ru';
 
     const color = textColor === 'light' ? 'text-white' : 'text-gray';
 
@@ -59,7 +63,7 @@ export const RequestForm = (
                 <div className="grid grid-cols-2 gap-5 max-[744px]:grid-cols-1">
                     <div className="flex flex-col gap-6">
                         <div>
-                            <Label htmlFor="name" className={`${color} font-semibold text-base pb-[6px]`}>Имя*</Label>
+                            <Label htmlFor="name" className={`${color} font-semibold text-base pb-[6px]`}>{DICTIONARY[lang].name}*</Label>
                             <Input type="text" id="name" required className="text-base bg-white p-[14px] h-auto" value={name} onChange={(e) => setName(e.target.value)} />
                         </div>
 
@@ -69,7 +73,7 @@ export const RequestForm = (
                         </div>
 
                         <div>
-                            <Label htmlFor="phone" className={`${color} font-semibold text-base pb-[6px]`}>Введите номер телефона*</Label>
+                            <Label htmlFor="phone" className={`${color} font-semibold text-base pb-[6px]`}>{DICTIONARY[lang].phone_label}*</Label>
 
                             <PhoneInput
                                 country={'kg'}
@@ -90,17 +94,17 @@ export const RequestForm = (
 
                     <div className="flex flex-col gap-6">
                         <div className="grow flex flex-col">
-                            <Label htmlFor="comment" className={`${color} font-semibold text-base pb-[6px]`}>Оставить комментарий</Label>
+                            <Label htmlFor="comment" className={`${color} font-semibold text-base pb-[6px]`}>{DICTIONARY[lang].comments}</Label>
                             <Textarea id="comment" className="text-base bg-white p-[14px] h-auto grow" value={comment} onChange={(e) => setComment(e.target.value)} />
                         </div>
 
                         <div className="flex gap-3">
                             <Checkbox id="agreement" required checked={agreement} onCheckedChange={(v: boolean) => setAgreement(v)} />
-                            <Label htmlFor="agreement" className={`text-sm ${color}`}>Я даю согласие на обработку персональных данных</Label>
+                            <Label htmlFor="agreement" className={`text-sm ${color}`}>{DICTIONARY[lang].privacy}</Label>
                         </div>
 
                         <Button variant="secondary" className={`text-white text-base font-semibold py-3 h-auto cursor-pointer rounded-full disabled:opacity-100 ${(!name || !email || !phone || !agreement) ? '!bg-[#999999]' : 'button-gradient'}`} disabled={!name || !email || !phone || !agreement} onClick={requestHandler}>
-                            {sendApplicationMutation.isPending ? 'Загрузка' : 'Отправить'}
+                            {sendApplicationMutation.isPending ? DICTIONARY[lang].loading : DICTIONARY[lang].send}
                         </Button>
                     </div>
                 </div>

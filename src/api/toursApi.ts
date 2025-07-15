@@ -42,7 +42,7 @@ export type TourDetailDto = {
 
 export const toursApi = {
     getBanner: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/tours/banner/`, { signal }).then((res) => res.json() as Promise<ToursBannerDto>);
+        return fetch(`${BASE_URL}/v1/tours/banner/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<ToursBannerDto>);
     },
     getTours: ({ signal }: { signal: AbortSignal }, params: { limit: number, offset: number, min_days: number | null, max_days: number | null }) => {
         let queryString = '';
@@ -51,12 +51,12 @@ export const toursApi = {
             queryString = `&max_days=${params.max_days}&min_days=${params.min_days}`;
         }
 
-        return fetch(`${BASE_URL}/v1/tours/?limit=${params.limit}&offset=${params.offset}${queryString}`, { signal }).then((res) => res.json() as Promise<ToursDto>);
+        return fetch(`${BASE_URL}/v1/tours/?limit=${params.limit}&offset=${params.offset}${queryString}`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<ToursDto>);
     },
     getTourById: ({ signal }: { signal: AbortSignal }, id?: string) => {
-        return fetch(`${BASE_URL}/v1/tours/${id}`, { signal }).then((res) => res.json() as Promise<TourDetailDto>);
+        return fetch(`${BASE_URL}/v1/tours/${id}`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<TourDetailDto>);
     },
     getFAQ: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/tours/faq`, { signal }).then((res) => res.json() as Promise<FAQDto[]>);
+        return fetch(`${BASE_URL}/v1/tours/faq`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<FAQDto[]>);
     },
 }

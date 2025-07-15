@@ -19,12 +19,15 @@ import { Banner } from "@/components/shared/Banner";
 import { Loader } from "@/components/shared/Loader";
 
 import { galleryApi, type GalleryPlacesDto } from "@/api/gallery";
+import { DICTIONARY } from "@/lib/dictionary";
 
 
 export const Gallery = () => {
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState<string[]>([]);
     const [placeId, setPlaceId] = useState<null | string>(null);
+
+    const lang = localStorage.getItem('lang') ?? 'ru';
 
     const { data: bannerData, isPending: isBannerPending } = useQuery({
         queryKey: ['gallery', 'banner'],
@@ -110,7 +113,7 @@ export const Gallery = () => {
 
                 <div className="pb-15 pt-7 max-[744px]:py-0">
                     {!selectedPlaces.length && (
-                        <h5 className="text-center max-[744px]:text-[24px]">Выберите локацию</h5>
+                        <h5 className="text-center max-[744px]:text-[24px]">{DICTIONARY[lang].location}</h5>
                     )}
 
                     {selectedPlaces.map((place) => (

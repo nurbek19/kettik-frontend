@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { Switch } from '@/components/ui/switch'
+import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
 
 import {
@@ -25,6 +25,8 @@ import { RequestForm } from '../shared/RequestForm';
 
 import { Menu } from "lucide-react";
 
+import { DICTIONARY } from '@/lib/dictionary';
+
 import logo from '../../assets/logo.svg';
 import check from '../../assets/check.png';
 import close from '../../assets/x-icon.png';
@@ -32,9 +34,34 @@ import close from '../../assets/x-icon.png';
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isChange, setIsChange] = useState(false);
 
     const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
+
+    const lang = localStorage.getItem('lang') ?? 'ru';
+
+    useEffect(() => {
+        const language = localStorage.getItem('lang');
+
+        if (language === 'ru') {
+            setIsChange(false);
+        } else if (language === 'en') {
+            setIsChange(true);
+        }
+    }, []);
+
+    const changeLanguage = (checked: boolean) => {
+        setIsChange(checked);
+
+        if (checked) {
+            localStorage.setItem("lang", "en");
+        } else {
+            localStorage.setItem("lang", "ru");
+        }
+
+        window.location.reload();
+    };
 
     return (
         <header className='header fixed top-0 z-2 max-w-[1280px] w-full max-[1300px]:pt-[18px] max-[1300px]:px-5'>
@@ -46,18 +73,18 @@ export const Header = () => {
                 </div>
 
                 <div className='flex gap-x-[40px] max-[1200px]:hidden'>
-                    <Link to="tours" className='text-xl font-semibold text-black hover:underline'>Туры</Link>
-                    <Link to="about" className='text-xl font-semibold text-black hover:underline'>О нас</Link>
-                    <Link to="kyrgyzstan" className='text-xl font-semibold text-black hover:underline'>Кыргызстан</Link>
-                    <Link to="/gallery" className='text-xl font-semibold text-black hover:underline'>Галерея</Link>
-                    <a href='#footer' className='text-xl font-semibold text-black hover:underline'>Контакты</a>
+                    <Link to="tours" className='text-xl font-semibold text-black hover:underline'>{DICTIONARY[lang].tours}</Link>
+                    <Link to="about" className='text-xl font-semibold text-black hover:underline'>{DICTIONARY[lang].about}</Link>
+                    <Link to="kyrgyzstan" className='text-xl font-semibold text-black hover:underline'>{DICTIONARY[lang].kyrgyzstan}</Link>
+                    <Link to="/gallery" className='text-xl font-semibold text-black hover:underline'>{DICTIONARY[lang].gallery}</Link>
+                    <a href='#footer' className='text-xl font-semibold text-black hover:underline'>{DICTIONARY[lang].contacts}</a>
                 </div>
 
-                {/* <div>
-                <Switch />
-            </div> */}
+                {/* <div> */}
+                <Switch checked={isChange} onCheckedChange={(v: boolean) => changeLanguage(v)} />
+                {/* </div>  */}
 
-                <Button className='py-3 px-12 h-auto cursor-pointer max-[744px]:hidden' onClick={() => setIsOpen(true)}>Оставить заявку</Button>
+                <Button className='py-3 px-12 h-auto cursor-pointer max-[744px]:hidden' onClick={() => setIsOpen(true)}>{DICTIONARY[lang].application}</Button>
 
                 <div className="max-[1200px]:block min-[1200px]:hidden">
                     <Sheet>
@@ -78,7 +105,7 @@ export const Header = () => {
                                     className='text-lg font-semibold'
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    Туры
+                                    {DICTIONARY[lang].tours}
                                 </Link>
                             </SheetClose>
 
@@ -88,7 +115,7 @@ export const Header = () => {
                                     className='text-lg font-semibold'
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    О нас
+                                    {DICTIONARY[lang].about}
                                 </Link>
                             </SheetClose>
 
@@ -98,7 +125,7 @@ export const Header = () => {
                                     className='text-lg font-semibold'
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    Кыргызстан
+                                    {DICTIONARY[lang].kyrgyzstan}
                                 </Link>
                             </SheetClose>
 
@@ -108,7 +135,7 @@ export const Header = () => {
                                     className='text-lg font-semibold'
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    Галерея
+                                    {DICTIONARY[lang].gallery}
                                 </Link>
                             </SheetClose>
 
@@ -118,7 +145,7 @@ export const Header = () => {
                                     className='text-lg font-semibold'
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    Контакты
+                                    {DICTIONARY[lang].contacts}
                                 </a>
                             </SheetClose>
 
@@ -128,7 +155,7 @@ export const Header = () => {
                                     setIsOpen(true);
                                 }}
                             >
-                                Оставить заявку
+                                {DICTIONARY[lang].application}
                             </Button>
                         </SheetContent>
                     </Sheet>
@@ -137,9 +164,9 @@ export const Header = () => {
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogContent className="!max-w-[846px] w-full p-15 rounded-3xl max-[744px]:p-5 max-[744px]:h-full max-[744px]:overflow-auto max-[744px]:rounded-none">
                         <DialogHeader className="">
-                            <DialogTitle className="text-[40px] font-bold max-[1024px]:text-[36px] max-[744px]:text-[28px]">Готовы к приключению?</DialogTitle>
+                            <DialogTitle className="text-[40px] font-bold max-[1024px]:text-[36px] max-[744px]:text-[28px]">{DICTIONARY[lang].application_title}</DialogTitle>
                             <DialogDescription className="text-gray text-xl font-semibold pb-6 max-[744px]:text-lg">
-                                Первый шаг к новому приключению — просто оставьте заявку!
+                                {DICTIONARY[lang].application_text}
                             </DialogDescription>
                         </DialogHeader>
                         <RequestForm
@@ -153,15 +180,15 @@ export const Header = () => {
                 <Dialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
                     <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl max-[744px]:bg-size-[300px_auto] max-[744px]:bg-right-center" style={{ backgroundImage: `url(${check})` }}>
                         <DialogHeader className="text-left pr-[170px] max-[744px]:pr-[30%]">
-                            <DialogTitle className="text-[40px] font-bold text-[#4CAF50] max-[744px]:text-[28px]">Заявка отправлена!</DialogTitle>
+                            <DialogTitle className="text-[40px] font-bold text-[#4CAF50] max-[744px]:text-[28px]">{DICTIONARY[lang].application_success}</DialogTitle>
                             <DialogDescription className="text-base text-gray">
-                                Ваш запрос успешно отправлен. Спасибо! Мы скоро свяжемся с вами.
+                                {DICTIONARY[lang].success_text}
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary" className="bg-[#262626] text-white rounded-full px-13 py-3 max-[]">
-                                    Закрыть
+                                    {DICTIONARY[lang].close}
                                 </Button>
                             </DialogClose>
                         </DialogFooter>
@@ -171,15 +198,15 @@ export const Header = () => {
                 <Dialog open={isErrorDialogOpen} onOpenChange={setIsErrorDialogOpen}>
                     <DialogContent className="max-w-[490px] w-full bg-right-top bg-no-repeat rounded-3xl max-[744px]:bg-size-[300px_auto] max-[744px]:bg-right-center" style={{ backgroundImage: `url(${close})` }}>
                         <DialogHeader className="text-left pr-[170px] max-[744px]:pr-[30%]">
-                            <DialogTitle className="text-[40px] font-bold text-[#D32F2F] max-[744px]:text-[28px]">Ошибка отправки!</DialogTitle>
+                            <DialogTitle className="text-[40px] font-bold text-[#D32F2F] max-[744px]:text-[28px]">{DICTIONARY[lang].application_error}</DialogTitle>
                             <DialogDescription className="text-base text-gray">
-                                Что-то пошло не так. Пожалуйста попробуйте ещё раз или свяжитесь с поддержкой.
+                                {DICTIONARY[lang].error_text}
                             </DialogDescription>
                         </DialogHeader>
                         <DialogFooter className="sm:justify-start">
                             <DialogClose asChild>
                                 <Button type="button" variant="secondary" className="bg-[#262626] text-white rounded-full px-13 py-3 h-auto">
-                                    Закрыть
+                                    {DICTIONARY[lang].close}
                                 </Button>
                             </DialogClose>
                         </DialogFooter>

@@ -24,8 +24,11 @@ import {
 import { toursApi } from '@/api/toursApi';
 import { homePageApi } from '@/api/homePage';
 
+import { DICTIONARY } from '@/lib/dictionary';
+
 export const TourDetail = () => {
     const { id } = useParams();
+    const lang = localStorage.getItem('lang') ?? 'ru';
 
     const { data: tour, isPending: isTourPending } = useQuery({
         queryKey: ['tours', 'tour', id],
@@ -57,14 +60,14 @@ export const TourDetail = () => {
         <div>
             <Banner img={tour.image} title={tour.title}>
                 <a href={contacts?.whatsapp} target='_blank' className="button-gradient text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:text-center">
-                    Забронировать
+                    {DICTIONARY[lang].book}
                 </a>
             </Banner>
 
             <div className="max-w-screen-xl mx-auto pt-[32px] pb-[90px] max-[1320px]:px-5 max-[1024px]:py-8">
                 <Breadcrumbs />
 
-                <h3 className="text-center pt-10 pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[1024px]:py-6">Информация о туре</h3>
+                <h3 className="text-center pt-10 pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[1024px]:py-6">{DICTIONARY[lang].tour_information}</h3>
 
                 <div className='flex items-center justify-center gap-20 max-[744px]:flex-col max-[744px]:gap-6'>
                     <div className='flex flex-col items-center gap-2'>
@@ -82,7 +85,7 @@ export const TourDetail = () => {
                             </linearGradient>
                         </svg>
 
-                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>Длительность</p>
+                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>{DICTIONARY[lang].duration}</p>
                         <span className='text-base text-dark-gray'>{tour.duration}</span>
                     </div>
                     <div className='flex flex-col items-center gap-2'>
@@ -104,7 +107,7 @@ export const TourDetail = () => {
                             </linearGradient>
                         </svg>
 
-                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>Сложность</p>
+                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>{DICTIONARY[lang].difficulty}</p>
                         <span className='text-base text-dark-gray'>{tour.difficulty}</span>
                     </div>
                     <div className='flex flex-col items-center gap-2'>
@@ -141,7 +144,7 @@ export const TourDetail = () => {
                             </linearGradient>
                         </svg>
 
-                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>Тип</p>
+                        <p className='text-2xl font-semibold text-dark-gray max-[744px]:text-xl'>{DICTIONARY[lang].type}</p>
                         <span className='text-base text-dark-gray'>{tour.type}</span>
                     </div>
                 </div>
@@ -168,8 +171,8 @@ export const TourDetail = () => {
 
             <div className="max-w-screen-xl mx-auto pt-[90px] pb-[120px] max-[1320px]:px-5 max-[1024px]:py-8">
                 <div className='pb-[120px] max-[1024px]:pb-8'>
-                    <h3 className='text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Программа тура</h3>
-                    <h5 className='text-center pb-6 max-[744px]:text-[22px]'>Продолжительность тура {tour.duration} дня</h5>
+                    <h3 className='text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>{DICTIONARY[lang].tour_program}</h3>
+                    <h5 className='text-center pb-6 max-[744px]:text-[22px]'>{DICTIONARY[lang].tour_duration} {tour.duration} {DICTIONARY[lang].tour_days}</h5>
 
                     {tour.programs?.map((program, index) => (
                         <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={program.id}>
@@ -178,7 +181,7 @@ export const TourDetail = () => {
                             </div>
 
                             <div>
-                                <p className='text-2xl text-dark-gray font-semibold pb-6 max-[744px]:text-xl'>День {program.day}:</p>
+                                <p className='text-2xl text-dark-gray font-semibold pb-6 max-[744px]:text-xl'>{DICTIONARY[lang].day} {program.day}:</p>
 
                                 <div className='[&>ul]:text-base [&>ul]:text-gray [&>ul]:list-disc [&>ul]:pl-6'>
                                     <ReactMarkdown children={program.text} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
@@ -252,7 +255,7 @@ export const TourDetail = () => {
                                     </linearGradient>
                                 </svg>
 
-                                Дата выезда
+                                {DICTIONARY[lang].departure}
                             </p>
 
                             <ul className='text-base text-gray list-disc pl-18'>
@@ -274,7 +277,7 @@ export const TourDetail = () => {
                                     </linearGradient>
                                 </svg>
 
-                                Цена
+                                {DICTIONARY[lang].price}
                             </p>
 
                             <p className='text-base text-gray pl-18'>{tour.price}</p>
@@ -292,7 +295,7 @@ export const TourDetail = () => {
                                     </linearGradient>
                                 </svg>
 
-                                Что включено в стоимость:
+                                {DICTIONARY[lang].advantages}
                             </p>
 
                             <ul className='text-base text-gray list-disc pl-18'>
@@ -309,7 +312,7 @@ export const TourDetail = () => {
                                     <path fillRule="evenodd" clipRule="evenodd" d="M9.79614 16.2625H30.1828C31.2138 16.2625 32.1512 16.6842 32.8307 17.3404C33.5103 18.0199 33.9321 18.9572 33.9321 19.9883C33.9321 21.0193 33.5103 21.9567 32.8307 22.6362C32.1512 23.3158 31.2138 23.7376 30.1828 23.7376H9.79614C8.76509 23.7376 7.82778 23.3158 7.14822 22.6362C6.46867 21.9567 6.04688 21.0193 6.04688 19.9883C6.04688 18.9572 6.46867 18.0199 7.14822 17.3404C7.82778 16.6842 8.76509 16.2625 9.79614 16.2625Z" fill="white" />
                                 </svg>
 
-                                Что не включено в стоимость:
+                                {DICTIONARY[lang].disadvantages}
                             </p>
 
                             <ul className='text-base text-gray list-disc pl-18'>
@@ -325,7 +328,7 @@ export const TourDetail = () => {
                                     <path d="M25.7937 3.05151C33.7363 6.43749 36.4919 16.6846 31.3139 23.5916L20.5076 38L9.70127 23.5916C7.64298 20.8394 6.70636 17.4083 7.08074 13.992C8.06232 5.13893 17.6079 -0.434422 25.7937 3.05151ZM26.8113 15.486C26.8113 12.0559 23.9386 9.18229 20.5076 9.18229C17.0676 9.18229 14.2039 12.0559 14.2039 15.486C14.2039 18.926 17.0676 21.7896 20.5076 21.7896C23.9386 21.7896 26.8113 18.9269 26.8113 15.486Z" fill="#EF3C3C" />
                                 </svg>
 
-                                Места проживание:
+                                {DICTIONARY[lang].living_place}
                             </p>
 
                             <ul className='text-base text-gray list-disc pl-18'>
@@ -356,11 +359,11 @@ export const TourDetail = () => {
 
 
                 <div className='flex flex-col items-center pt-[120px] pb-8 max-[1024px]:pt-8'>
-                    <h3 className='pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>Маршрут</h3>
-                    <p className='text-gray text-center pb-6'>Этот маршрут — настоящее приключение сквозь сердце Центральной Азии: меняющиеся пейзажи, кочевые традиции незабываемая атмосфера свободы на просторах Кыргызстана.</p>
+                    <h3 className='pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>{DICTIONARY[lang].route}</h3>
+                    <p className='text-gray text-center pb-6'>{DICTIONARY[lang].route_title}</p>
 
                     <a href={contacts?.whatsapp} target='_blank' className="button-gradient inline-flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:justify-center">
-                        Получить консультацию
+                        {DICTIONARY[lang].consultation}
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path fillRule="evenodd" clipRule="evenodd" d="M15.0231 2.48241C13.4251 0.882459 11.2998 0.000934158 9.03554 0C4.36998 0 0.572864 3.79701 0.570996 8.46382C0.570355 9.95567 0.96006 11.4119 1.70082 12.6956L0.5 17.0818L4.98719 15.9047C6.22359 16.5791 7.61556 16.9345 9.03209 16.935H9.03567C13.7007 16.935 17.4982 13.1377 17.5 8.4706C17.501 6.20882 16.6213 4.08227 15.0231 2.48241ZM9.03554 15.5054H9.0326C7.77026 15.5049 6.53218 15.1657 5.45184 14.5248L5.19508 14.3722L2.5323 15.0708L3.24301 12.4746L3.07566 12.2085C2.37141 11.0883 1.99951 9.79363 2.00015 8.46433C2.00162 4.58538 5.15774 1.42958 9.03837 1.42958C10.9175 1.4302 12.684 2.16292 14.0122 3.49274C15.3405 4.82255 16.0715 6.59017 16.0709 8.47007C16.0693 12.3493 12.9134 15.5054 9.03554 15.5054ZM12.8946 10.2363C12.6831 10.1304 11.6433 9.61889 11.4493 9.54822C11.2556 9.47762 11.1144 9.44247 10.9736 9.65413C10.8325 9.86578 10.4273 10.3422 10.3038 10.4833C10.1804 10.6245 10.0572 10.6422 9.84561 10.5363C9.63409 10.4304 8.95264 10.207 8.14475 9.48648C7.51606 8.92567 7.09163 8.23308 6.96819 8.02146C6.84496 7.80959 6.96712 7.70616 7.06097 7.5898C7.28992 7.30549 7.51919 7.00741 7.58967 6.86636C7.66024 6.72516 7.62491 6.60164 7.57195 6.49582C7.51919 6.38999 7.09623 5.34896 6.92002 4.92536C6.74821 4.51313 6.57398 4.56878 6.44408 4.56235C6.32085 4.55618 6.17979 4.55493 6.03873 4.55493C5.89775 4.55493 5.66859 4.60778 5.47469 4.81964C5.28086 5.0314 4.73457 5.543 4.73457 6.58403C4.73457 7.62505 5.49241 8.63071 5.59813 8.77188C5.70382 8.91307 7.08955 11.0493 9.21111 11.9653C9.71571 12.1835 10.1096 12.3135 10.4169 12.4109C10.9236 12.5719 11.3845 12.5492 11.749 12.4947C12.1554 12.434 13.0002 11.9831 13.1766 11.4891C13.3528 10.995 13.3528 10.5716 13.2998 10.4833C13.2471 10.3951 13.106 10.3422 12.8946 10.2363Z" fill="white" />

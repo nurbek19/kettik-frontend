@@ -6,6 +6,8 @@ import rehypeRaw from "rehype-raw";
 
 import { homePageApi } from '@/api/homePage'
 
+import { DICTIONARY } from '@/lib/dictionary';
+
 import logo from '../../assets/logo-white.png'
 
 
@@ -14,6 +16,8 @@ export const Footer = () => {
         queryKey: ['home', 'contacts'],
         queryFn: homePageApi.getContacts
     });
+
+    const lang = localStorage.getItem('lang') ?? 'ru';
 
     if (!data) {
         return null;
@@ -28,7 +32,7 @@ export const Footer = () => {
                             <img src={logo} className='w-[132px]' alt="logotype" />
                         </Link>
 
-                        <h4 className='text-2xl font-semibold text-white pt-[42px] pb-[24px]'>Контакты</h4>
+                        <h4 className='text-2xl font-semibold text-white pt-[42px] pb-[24px]'>{DICTIONARY[lang].contacts}</h4>
 
                         <p className='flex items-center gap-x-[8px] pb-[16px]'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -87,12 +91,12 @@ export const Footer = () => {
                     </div>
 
                     <div className='flex flex-col pr-15 max-[1200px]:pr-0 max-[744px]:pt-10'>
-                        <h4 className='text-2xl font-semibold text-white pb-[24px]'>Навигация</h4>
+                        <h4 className='text-2xl font-semibold text-white pb-[24px]'>{DICTIONARY[lang].navigation}</h4>
 
-                        <Link to="tours" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>Туры</Link>
-                        <Link to="about" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>О нас</Link>
-                        <Link to="kyrgyzstan" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>Кыргызстан</Link>
-                        <Link to="gallery" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>Галерея</Link>
+                        <Link to="tours" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>{DICTIONARY[lang].tours}</Link>
+                        <Link to="about" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>{DICTIONARY[lang].about}</Link>
+                        <Link to="kyrgyzstan" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>{DICTIONARY[lang].kyrgyzstan}</Link>
+                        <Link to="gallery" className='text-xl font-semibold text-white pb-[16px] hover:underline max-[744px]:text-lg'>{DICTIONARY[lang].gallery}</Link>
                     </div>
 
                     <div className='max-[1200px]:pt-10 max-[1200px]:col-span-2 max-[744px]:col-span-1'>
@@ -112,9 +116,9 @@ export const Footer = () => {
                 </div>
 
                 <div className='flex items-center justify-between pt-[24px] border-t border-[#999999] max-[744px]:flex-col max-[744px]:items-start'>
-                    <a href="#" className='text-sm text-white max-[744px]:pb-6'>Политика конфиденциальности</a>
+                    <a href="#" className='text-sm text-white max-[744px]:pb-6'>{DICTIONARY[lang].policy}</a>
 
-                    <span className='text-sm text-white'>© 2016-2024 Kettik тур-оператор</span>
+                    <span className='text-sm text-white'>© 2016-2024 Kettik {DICTIONARY[lang].tour_operator}</span>
                 </div>
             </div>
         </footer>

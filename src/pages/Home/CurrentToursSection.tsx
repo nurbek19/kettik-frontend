@@ -3,13 +3,16 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card } from "@/components/shared/Card";
 
 import { type ToursDto } from "@/api/toursApi";
+import { DICTIONARY } from "@/lib/dictionary";
 
 
 export const CurrentToursSection = ({ tours }: { tours: ToursDto }) => {
+    const lang = localStorage.getItem('lang') ?? 'ru';
+
     return (
         <div className="max-w-[1320px] mx-auto pt-[120px] pb-[90px] max-[1100px]:py-8">
             <div className="relative">
-                <h3 className="text-center max-[1024px]:text-[36px] max-[744px]:text-[28px] px-5">Актуальные туры</h3>
+                <h3 className="text-center max-[1024px]:text-[36px] max-[744px]:text-[28px] px-5">{DICTIONARY[lang].current_tours}</h3>
 
                 <ScrollArea className="w-full [&>div]:p-5">
                     <div className="grid grid-cols-4 gap-5 w-[1280px]">
@@ -22,7 +25,7 @@ export const CurrentToursSection = ({ tours }: { tours: ToursDto }) => {
 
                 <div className="absolute right-5 top-3 max-[1200px]:static max-[1200px]:flex max-[1200px]:justify-end max-[1200px]:px-5  max-[744px]:w-full">
                     <Link to="tours" className="button-gradient flex items-center gap-x-[6px] text-white font-semibold text-base px-12 py-3 max-[744px]:w-full max-[744px]:justify-center">
-                        Все туры
+                        {DICTIONARY[lang].all_tours}
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path d="M3.24141 9.36011C2.24889 9.36011 1.44141 10.1676 1.44141 11.1601C1.44141 12.1526 2.24889 12.9601 3.24141 12.9601C4.23393 12.9601 5.04141 12.1526 5.04141 11.1601C5.04141 10.1676 4.23393 9.36011 3.24141 9.36011ZM3.24141 12.2401C2.64589 12.2401 2.16141 11.7556 2.16141 11.1601C2.16141 10.5646 2.64589 10.0801 3.24141 10.0801C3.83692 10.0801 4.32141 10.5646 4.32141 11.1601C4.32141 11.7556 3.83692 12.2401 3.24141 12.2401Z" fill="white" />

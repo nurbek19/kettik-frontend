@@ -17,9 +17,9 @@ export type GalleryPlacesDto = {
 
 export const galleryApi = {
     getBanner: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/gallary/banner/`, { signal }).then((res) => res.json() as Promise<GalleryBannerDto>);
+        return fetch(`${BASE_URL}/v1/gallary/banner/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<GalleryBannerDto>);
     },
     getPlaces: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/gallary/place/`, { signal }).then((res) => res.json() as Promise<GalleryPlacesDto[]>);
+        return fetch(`${BASE_URL}/v1/gallary/place/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<GalleryPlacesDto[]>);
     },
 }

@@ -22,6 +22,8 @@ import { Loader } from "@/components/shared/Loader";
 
 import { toursApi } from "@/api/toursApi";
 
+import { DICTIONARY } from "@/lib/dictionary";
+
 export const Tours = () => {
     const [page, setPage] = useState(1);
     const [minDays, setMinDays] = useState<number | null>(null);
@@ -29,6 +31,8 @@ export const Tours = () => {
     const [short, setShort] = useState(false);
     const [week, setWeek] = useState(false);
     const [long, setLong] = useState(false);
+
+    const lang = localStorage.getItem('lang') ?? 'ru';
 
     const limit = 12;
     const offset = (page - 1) * limit;
@@ -68,13 +72,13 @@ export const Tours = () => {
             <div className="max-w-screen-xl mx-auto pt-[32px] pb-[120px] max-[1320px]:px-5 max-[744px]:pb-8">
                 <Breadcrumbs />
 
-                <h3 className="text-center pt-10 pb-8 max-[744px]:py-5 max-[1024px]:text-[36px] max-[744px]:text-[28px]">Туры</h3>
+                <h3 className="text-center pt-10 pb-8 max-[744px]:py-5 max-[1024px]:text-[36px] max-[744px]:text-[28px]">{DICTIONARY[lang].tours}</h3>
 
                 <ScrollArea className="w-full whitespace-nowrap pb-5">
                     <div className="flex gap-4">
                         <Button variant="outline" className="text-xl font-semibold text-dark-gray px-3 py-2 border-[#E5E5E5] rounded-full"
                             onClick={() => { setShort(false); setWeek(false); setLong(false); setMinDays(null); setMaxDays(null); }}
-                        >Все</Button>
+                        >{DICTIONARY[lang].all}</Button>
                         <div className="flex gap-4">
                             <div className="flex items-center gap-2 cursor-pointer">
                                 <Checkbox
@@ -92,7 +96,7 @@ export const Tours = () => {
                                         }
                                     }}
                                 />
-                                <Label htmlFor="short" className="text-xl font-semibold text-dark-gray cursor-pointer">Короткие туры (2–3 дня)</Label>
+                                <Label htmlFor="short" className="text-xl font-semibold text-dark-gray cursor-pointer">{DICTIONARY[lang].short}</Label>
                             </div>
 
                             <div className="flex items-center gap-2 cursor-pointer">
@@ -107,7 +111,7 @@ export const Tours = () => {
                                             setMinDays(null); setMaxDays(null);
                                         }
                                     }} />
-                                <Label htmlFor="week" className="text-xl font-semibold text-dark-gray cursor-pointer">Недельные туры (5–7 дней)</Label>
+                                <Label htmlFor="week" className="text-xl font-semibold text-dark-gray cursor-pointer">{DICTIONARY[lang].week}</Label>
                             </div>
 
                             <div className="flex items-center gap-2 cursor-pointer">
@@ -122,7 +126,7 @@ export const Tours = () => {
                                             setMinDays(null); setMaxDays(null);
                                         }
                                     }} />
-                                <Label htmlFor="long" className="text-xl font-semibold text-dark-gray cursor-pointer">Длительные туры (более 7 дней)</Label>
+                                <Label htmlFor="long" className="text-xl font-semibold text-dark-gray cursor-pointer">{DICTIONARY[lang].long}</Label>
                             </div>
                         </div>
                     </div>

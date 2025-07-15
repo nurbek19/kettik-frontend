@@ -1,11 +1,14 @@
 
 import type { DigitsDto } from '@/api/aboutUs';
+import { DICTIONARY } from '@/lib/dictionary';
 
 export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
+    const lang = localStorage.getItem('lang') ?? 'ru';
+
     return (
         <div>
             <div className="max-w-screen-xl mx-auto">
-                <h3 className='text-center pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[744px]:pb-4'>Сегодня “Кеттик” - это</h3>
+                <h3 className='text-center pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px] max-[744px]:pb-4'>{DICTIONARY[lang].about_title}</h3>
 
                 <div className='grid grid-cols-2 gap-5 max-[744px]:grid-cols-1'>
                     <div className='flex gap-5'>
@@ -26,7 +29,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                             </svg>
 
                             <span className='text-[#FA7436] text-[65px] font-bold max-[1024px]:text-[36px]'>{digits.years}</span>
-                            <p>лет успешной работы</p>
+                            <p>{DICTIONARY[lang].about_work}</p>
                         </div>
 
                         <div className='grow p-5 flex flex-col justify-end  bg-[#F5F5F5] rounded-3xl border border-[#E5E5E5]'>
@@ -60,7 +63,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                             </svg>
 
                             <span className='text-[#FA7436] text-[65px] font-bold max-[1024px]:text-[36px]'>{digits.amount_tourist}</span>
-                            <p>довольных туристов</p>
+                            <p>{DICTIONARY[lang].about_tourists}</p>
                         </div>
                     </div>
 
@@ -88,7 +91,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                                 </svg>
 
                                 <span className='text-[#FA7436] text-[65px] font-bold max-[1024px]:text-[36px]'>{digits.amount_paths}</span>
-                                <p>разных тур-маршрутов по Центральной Азии</p>
+                                <p>{DICTIONARY[lang].about_roads}</p>
                             </div>
                             <div className='p-5 flex flex-col bg-[#F5F5F5] rounded-3xl border border-[#E5E5E5]'>
                                 <svg className='max-[744px]:w-full' xmlns="http://www.w3.org/2000/svg" width="40" height="46" viewBox="0 0 40 46" fill="none">
@@ -112,7 +115,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                                 </svg>
 
                                 <span className='text-[#FA7436] text-[65px] font-bold max-[1024px]:text-[36px]'>{digits.amount_gids}</span>
-                                <p className='max-[744px]:break-all'>профессиональных гидов</p>
+                                <p className='max-[744px]:break-all'>{DICTIONARY[lang].about_guides}</p>
                             </div>
                         </div>
 
