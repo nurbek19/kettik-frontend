@@ -118,7 +118,9 @@ export const Footer = () => {
                 <div className='flex items-center justify-between pt-[24px] border-t border-[#999999] max-[744px]:flex-col max-[744px]:items-start'>
                     <a href="#" className='text-sm text-white max-[744px]:pb-6'>{DICTIONARY[lang].policy}</a>
 
-                    <span className='text-sm text-white'>© 2016-2024 Kettik {DICTIONARY[lang].tour_operator}</span>
+                    <span className='text-sm text-white max-[744px]:pb-6'>© 2016-2024 Kettik {DICTIONARY[lang].tour_operator}</span>
+
+                    <a href="https://t.me/ng2024d" className='text-sm text-white underline' target='_blank'>Сайт разработан</a>
                 </div>
             </div>
         </footer>
