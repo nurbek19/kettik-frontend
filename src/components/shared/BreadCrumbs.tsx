@@ -13,7 +13,7 @@ import { DICTIONARY } from "@/lib/dictionary";
 export default function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter(Boolean);
-  const lang = localStorage.getItem('lang') ?? 'ru';
+  const lang = localStorage.getItem('lang') ?? 'en';
 
   return (
     <Breadcrumb className="max-[744px]:hidden">

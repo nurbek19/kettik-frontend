@@ -28,7 +28,7 @@ import { DICTIONARY } from '@/lib/dictionary';
 
 export const TourDetail = () => {
     const { id } = useParams();
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const { data: tour, isPending: isTourPending } = useQuery({
         queryKey: ['tours', 'tour', id],
@@ -281,6 +281,7 @@ export const TourDetail = () => {
                             </p>
 
                             <p className='text-base text-gray pl-18'>{tour.price}</p>
+                            <p className='text-base text-gray pl-18'>{DICTIONARY[lang].custom_tours}</p>
                         </div>
                     </div>
 

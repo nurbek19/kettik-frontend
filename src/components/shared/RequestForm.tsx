@@ -23,7 +23,7 @@ export const RequestForm = (
     const [comment, setComment] = useState('');
     const [agreement, setAgreement] = useState(false);
 
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const color = textColor === 'light' ? 'text-white' : 'text-gray';
 

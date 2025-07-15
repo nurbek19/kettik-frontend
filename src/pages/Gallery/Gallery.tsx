@@ -27,7 +27,7 @@ export const Gallery = () => {
     const [selected, setSelected] = useState<string[]>([]);
     const [placeId, setPlaceId] = useState<null | string>(null);
 
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const { data: bannerData, isPending: isBannerPending } = useQuery({
         queryKey: ['gallery', 'banner'],

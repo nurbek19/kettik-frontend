@@ -19,12 +19,12 @@ export type ArticlesDto = {
 
 export const kyrgyzstanApi = {
     getBanner: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/kyrgyzstan/banner/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<KyrgyzstanBannerDto>);
+        return fetch(`${BASE_URL}/v1/kyrgyzstan/banner/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en", } }).then((res) => res.json() as Promise<KyrgyzstanBannerDto>);
     },
     getArticles: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/kyrgyzstan/articles/?limit=100&offset=1`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<ArticlesDto>);
+        return fetch(`${BASE_URL}/v1/kyrgyzstan/articles/?limit=100&offset=1`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en", } }).then((res) => res.json() as Promise<ArticlesDto>);
     },
     getRegions: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/kyrgyzstan/regions`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<Array<{ id: string; name: string; text: string }>>);
+        return fetch(`${BASE_URL}/v1/kyrgyzstan/regions`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en", } }).then((res) => res.json() as Promise<Array<{ id: string; name: string; text: string }>>);
     },
 }

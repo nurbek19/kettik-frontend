@@ -17,8 +17,8 @@ function Switch({
       {...props}
     >
       <div className="absolute left-0 right-0 flex justify-between items-center px-[10px]">
-        <span className={`text-sm font-semibold ${props.checked ? '' : 'text-green'}`}>Рус</span>
-        <span className={`text-sm font-semibold ${props.checked ? 'text-green' : ''}`}>Eng</span>
+        <span className={`text-sm font-semibold ${props.checked ? '' : 'text-green'}`}>Eng</span>
+        <span className={`text-sm font-semibold ${props.checked ? 'text-green' : ''}`}>Рус</span>
       </div>
       <SwitchPrimitive.Thumb
         data-slot="switch-thumb"

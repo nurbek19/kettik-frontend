@@ -25,7 +25,7 @@ export const Kyrgyzstan = () => {
 
     const [selectedIndex, setSelectedIndex] = useState(0);
 
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const { data: bannerData, isPending: isBannerPending } = useQuery({
         queryKey: ['kyrgyzstan', 'banner'],

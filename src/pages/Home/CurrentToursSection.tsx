@@ -7,7 +7,7 @@ import { DICTIONARY } from "@/lib/dictionary";
 
 
 export const CurrentToursSection = ({ tours }: { tours: ToursDto }) => {
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     return (
         <div className="max-w-[1320px] mx-auto pt-[120px] pb-[90px] max-[1100px]:py-8">

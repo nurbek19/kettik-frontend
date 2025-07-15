@@ -39,15 +39,15 @@ export const Header = () => {
     const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
 
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     useEffect(() => {
         const language = localStorage.getItem('lang');
 
         if (language === 'ru') {
-            setIsChange(false);
-        } else if (language === 'en') {
             setIsChange(true);
+        } else if (language === 'en') {
+            setIsChange(false);
         }
     }, []);
 
@@ -55,9 +55,9 @@ export const Header = () => {
         setIsChange(checked);
 
         if (checked) {
-            localStorage.setItem("lang", "en");
-        } else {
             localStorage.setItem("lang", "ru");
+        } else {
+            localStorage.setItem("lang", "en");
         }
 
         window.location.reload();
@@ -80,9 +80,7 @@ export const Header = () => {
                     <a href='#footer' className='text-xl font-semibold text-black hover:underline'>{DICTIONARY[lang].contacts}</a>
                 </div>
 
-                {/* <div> */}
                 <Switch checked={isChange} onCheckedChange={(v: boolean) => changeLanguage(v)} />
-                {/* </div>  */}
 
                 <Button className='py-3 px-12 h-auto cursor-pointer max-[744px]:hidden' onClick={() => setIsOpen(true)}>{DICTIONARY[lang].application}</Button>
 

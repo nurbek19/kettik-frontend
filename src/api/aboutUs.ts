@@ -37,19 +37,19 @@ export const aboutUsPageApi = {
     getBanner: ({ signal }: { signal: AbortSignal }) => {
         return fetch(`${BASE_URL}/v1/about/us/banner/`, {
             signal,
-            headers: { "Accept-Language": localStorage.getItem("lang") || "ru" }
+            headers: { "Accept-Language": localStorage.getItem("lang") || "en" }
         }).then((res) => res.json() as Promise<AboutBannerDto>);
     },
     getHistory: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/about/us/history/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru" } }).then((res) => res.json() as Promise<HistoryDto>);
+        return fetch(`${BASE_URL}/v1/about/us/history/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en" } }).then((res) => res.json() as Promise<HistoryDto>);
     },
     getImages: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/about/us/images/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru" } }).then((res) => res.json() as Promise<AboutImageDto[]>);
+        return fetch(`${BASE_URL}/v1/about/us/images/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en" } }).then((res) => res.json() as Promise<AboutImageDto[]>);
     },
     getDigits: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/about/us/in/digits/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru" } }).then((res) => res.json() as Promise<DigitsDto>);
+        return fetch(`${BASE_URL}/v1/about/us/in/digits/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en" } }).then((res) => res.json() as Promise<DigitsDto>);
     },
     getTeams: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/about/us/teams/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru" } }).then((res) => res.json() as Promise<TeamDto[]>);
+        return fetch(`${BASE_URL}/v1/about/us/teams/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en" } }).then((res) => res.json() as Promise<TeamDto[]>);
     }
 }

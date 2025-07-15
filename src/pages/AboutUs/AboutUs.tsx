@@ -18,7 +18,7 @@ import { DICTIONARY } from "@/lib/dictionary";
 
 
 export const AboutUs = () => {
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const { data: bannerData, isPending: isBannerPending } = useQuery({
         queryKey: ['about', 'banner'],

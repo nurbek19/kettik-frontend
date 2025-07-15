@@ -292,3 +292,13 @@ button:focus-visible {
 .thumb-shadow {
   box-shadow: -5px -5px 10px 0px rgba(0, 0, 0, 0.10), 5px 5px 10px 0px rgba(0, 0, 0, 0.10);
 }
+
+@media screen and (max-width: 744px) {
+  .oval::before {
+    clip-path: ellipse(50% 30% at 50% 0%);
+  }
+  
+  .oval::after {
+    clip-path: ellipse(50% 30% at 50% 100%);
+  }
+}

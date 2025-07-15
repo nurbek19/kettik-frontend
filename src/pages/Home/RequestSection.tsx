@@ -21,7 +21,7 @@ export const RequestSection = () => {
     const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false);
     const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
 
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     return (
         <div className="relative bg-center bg-cover" style={{ backgroundImage: `url(${bg})` }}>

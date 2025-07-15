@@ -28,10 +28,10 @@ export type ReviewDto = {
 
 export const homePageApi = {
     getBanner: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/main/page/banner/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<HomeBannerDto>);
+        return fetch(`${BASE_URL}/v1/main/page/banner/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en", } }).then((res) => res.json() as Promise<HomeBannerDto>);
     },
     getContacts: ({ signal }: { signal: AbortSignal }) => {
-        return fetch(`${BASE_URL}/v1/main/page/contacts/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "ru", } }).then((res) => res.json() as Promise<ContactsDto>);
+        return fetch(`${BASE_URL}/v1/main/page/contacts/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en", } }).then((res) => res.json() as Promise<ContactsDto>);
     },
     sendApplication: async (payload: { name: string, email: string; phone: string; comment: string }) => {
         const res = await fetch(

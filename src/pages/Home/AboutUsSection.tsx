@@ -17,7 +17,7 @@ import { formatDateRu } from "@/lib/utils";
 import { DICTIONARY } from "@/lib/dictionary";
 
 export const AboutUsSection = () => {
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const { data: digits } = useQuery({
         queryKey: ['about', 'digits'],

@@ -3,7 +3,7 @@ import type { DigitsDto } from '@/api/aboutUs';
 import { DICTIONARY } from '@/lib/dictionary';
 
 export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     return (
         <div>

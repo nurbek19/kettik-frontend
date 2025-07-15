@@ -74,7 +74,8 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         not_found: 'Вы свернули не туда — страницы не существует.',
         back: 'Вернёмся к приключениям в Кыргызстане!',
         choose_tours: 'Выбрать туры',
-        back_main: 'Вернуться на главную'
+        back_main: 'Вернуться на главную',
+        custom_tours: 'Индивидуальные туры по запросу'
     },
     'en': {
         tours: 'Tours',
@@ -91,7 +92,7 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         home: 'Home',
         sheet: 'Page',
         more: 'Read more',
-        about_title: 'Today, “Kettik” is:',
+        about_title: 'This is Kettik today:',
         about_work: 'years of successful experience',
         about_tourists: 'happy travelers',
         about_roads: 'unique tour routes across Central Asia',
@@ -151,6 +152,7 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         not_found: 'Looks like you have taken a wrong turn — this page does not exist.',
         back: ' Let is get back to exploring Kyrgyzstan!',
         choose_tours: 'Browse Tours',
-        back_main: 'Return to Homepage'
+        back_main: 'Return to Homepage',
+        custom_tours: 'Individual tours on request'
     }
 }

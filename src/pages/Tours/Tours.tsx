@@ -32,7 +32,7 @@ export const Tours = () => {
     const [week, setWeek] = useState(false);
     const [long, setLong] = useState(false);
 
-    const lang = localStorage.getItem('lang') ?? 'ru';
+    const lang = localStorage.getItem('lang') ?? 'en';
 
     const limit = 12;
     const offset = (page - 1) * limit;
