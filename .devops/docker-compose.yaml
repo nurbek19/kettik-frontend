@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: kettik_frontend
+    build:
+      context: ../
+      dockerfile: .devops/Dockerfile
+    volumes:
+      - ../dist:/kettik_frontend/dist
+    command: "sh /kettik_frontend/.devops/entrypoint.sh"
