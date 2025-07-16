@@ -3,6 +3,8 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious
 } from "@/components/ui/carousel"
 
 import { useQuery } from "@tanstack/react-query";
@@ -105,7 +107,7 @@ export const AboutUs = () => {
                 </div>
             </div>
 
-            <div className="pt-[60px] pb-[120px] max-[744px]:pb-8 max-[744px]:pt-0">
+            <div className="pt-[60px] pb-[120px] max-[744px]:pb-18 max-[744px]:pt-0">
                 <h3 className="text-center pb-8 max-[1024px]:text-[36px] max-[744px]:text-[28px]">{DICTIONARY[lang].team}</h3>
 
                 <div>
@@ -120,20 +122,23 @@ export const AboutUs = () => {
                             {team?.map((member) => (
                                 <CarouselItem key={member.id} className="max-w-[570px] w-full max-[744px]:max-w-[270px]">
                                     <div className="bg-[#F5F5F5] h-full p-5 border-[#E5E5E5] border-2 rounded-3xl">
-                                        <div className="flex items-center gap-4 pb-5 max-[744px]:flex-col">
-                                            <img src={member.image} className="w-[160px] h-[160px] rounded-full object-cover" alt="person image" />
+                                        <div className="flex items-center gap-4 pb-5 max-[744px]:flex-col max-[744px]:pb-2">
+                                            <img src={member.image} className="w-[160px] h-[160px] rounded-full object-cover max-[744px]:w-[120px] max-[744px]:h-[120px]" alt="person image" />
 
                                             <div>
-                                            <p className="text-2xl font-semibold">{member.name}</p>
-                                            <span className="font-semibold">{member.duty}</span>
+                                                <p className="text-2xl font-semibold max-[744px]:text-xl">{member.name}</p>
+                                                <span className="font-semibold max-[744px]:text-sm">{member.duty}</span>
                                             </div>
                                         </div>
 
-                                        <p className="text-base text-gray pb-5">{member.text}</p>
+                                        <p className="text-base text-gray">{member.text}</p>
                                     </div>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
+
+                        <CarouselPrevious className="left-[48%] bottom-0 translate-none top-[104%] z-2 border-none bg-none hover:!bg-none shadow-none max-[1330px]:left-[calc(50%-30px)]" />
+                        <CarouselNext className="right-[48%] bottom-0 translate-none top-[104%] z-2 border-none bg-none hover:!bg-none shadow-none max-[1330px]:right-[calc(50%-30px)]" />
                     </Carousel>
                 </div>
             </div>

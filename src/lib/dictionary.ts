@@ -51,7 +51,7 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         articles: 'Статьи',
         book: 'Забронировать',
         tour_information: 'Информация о туре',
-        duration: 'Длительность',
+        duration: 'Количество дней',
         difficulty: 'Сложность',
         type: 'Тип',
         tour_program: 'Программа тура',
@@ -75,7 +75,8 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         back: 'Вернёмся к приключениям в Кыргызстане!',
         choose_tours: 'Выбрать туры',
         back_main: 'Вернуться на главную',
-        custom_tours: 'Индивидуальные туры по запросу'
+        custom_tours: 'Индивидуальные туры по запросу',
+        privacy_title: 'Политика конфиденциальности'
     },
     'en': {
         tours: 'Tours',
@@ -129,7 +130,7 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         articles: 'Articles',
         book: 'Book',
         tour_information: 'Tour Information',
-        duration: 'Duration',
+        duration: 'Number of days',
         difficulty: 'Difficulty',
         type: 'Type',
         tour_program: 'Tour Program',
@@ -153,6 +154,7 @@ export const DICTIONARY: { [key: string]: { [key: string]: string } } = {
         back: ' Let is get back to exploring Kyrgyzstan!',
         choose_tours: 'Browse Tours',
         back_main: 'Return to Homepage',
-        custom_tours: 'Individual tours on request'
+        custom_tours: 'Individual tours on request',
+        privacy_title: 'Privacy Policy'
     }
 }

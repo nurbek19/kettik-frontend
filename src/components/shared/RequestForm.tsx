@@ -76,7 +76,7 @@ export const RequestForm = (
                             <Label htmlFor="phone" className={`${color} font-semibold text-base pb-[6px]`}>{DICTIONARY[lang].phone_label}*</Label>
 
                             <PhoneInput
-                                country={'kg'}
+                                country={'us'}
                                 enableSearch
                                 inputClass={cn(
                                     "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
@@ -95,7 +95,7 @@ export const RequestForm = (
                     <div className="flex flex-col gap-6">
                         <div className="grow flex flex-col">
                             <Label htmlFor="comment" className={`${color} font-semibold text-base pb-[6px]`}>{DICTIONARY[lang].comments}</Label>
-                            <Textarea id="comment" className="text-base bg-white p-[14px] h-auto grow" value={comment} onChange={(e) => setComment(e.target.value)} />
+                            <Textarea id="comment" className="text-base bg-white p-[14px] h-auto grow resize-none" maxLength={500} value={comment} onChange={(e) => setComment(e.target.value)} />
                         </div>
 
                         <div className="flex gap-3">

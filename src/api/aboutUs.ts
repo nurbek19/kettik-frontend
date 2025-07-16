@@ -51,5 +51,8 @@ export const aboutUsPageApi = {
     },
     getTeams: ({ signal }: { signal: AbortSignal }) => {
         return fetch(`${BASE_URL}/v1/about/us/teams/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en" } }).then((res) => res.json() as Promise<TeamDto[]>);
-    }
+    },
+    getPrivacy: ({ signal }: { signal: AbortSignal }) => {
+        return fetch(`${BASE_URL}/v1/about/us/privacy/`, { signal, headers: { "Accept-Language": localStorage.getItem("lang") || "en" } }).then((res) => res.json() as Promise<{ id: string; text: string; }>);
+    },
 }

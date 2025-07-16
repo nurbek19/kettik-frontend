@@ -64,7 +64,7 @@ export const Header = () => {
     };
 
     return (
-        <header className='header fixed top-0 z-2 max-w-[1280px] w-full max-[1300px]:pt-[18px] max-[1300px]:px-5'>
+        <header className='header fixed top-0 z-3 max-w-[1280px] w-full max-[1300px]:pt-[18px] max-[1300px]:px-5'>
             <div className='header-shadow flex justify-between items-center gap-5 mx-auto bg-white rounded-full w-full px-[20px] py-[14px] max-[744px]:py-2 max-[744px]:px-3'>
                 <div className='max-[1200px]:grow'>
                     <Link to="/">

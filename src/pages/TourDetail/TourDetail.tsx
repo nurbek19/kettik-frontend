@@ -12,6 +12,8 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious
 } from "@/components/ui/carousel";
 
 import {
@@ -165,6 +167,9 @@ export const TourDetail = () => {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+
+                    <CarouselPrevious className="left-[48%] bottom-0 translate-none top-full z-2 border-none hover:!bg-none shadow-none max-[1330px]:left-[calc(50%-30px)]" />
+                    <CarouselNext className="right-[48%] bottom-0 translate-none top-full z-2 border-none hover:!bg-none shadow-none max-[1330px]:right-[calc(50%-30px)]" />
                 </Carousel>
             </div>
 
@@ -280,7 +285,7 @@ export const TourDetail = () => {
                                 {DICTIONARY[lang].price}
                             </p>
 
-                            <p className='text-base text-gray pl-18'>{tour.price}</p>
+                            <p className='text-base text-gray pl-18'>{tour.price} {tour.currency}</p>
                             <p className='text-base text-gray pl-18'>{DICTIONARY[lang].custom_tours}</p>
                         </div>
                     </div>

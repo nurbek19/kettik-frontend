@@ -105,6 +105,9 @@ export const AboutUsSection = () => {
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
+
+                            <CarouselPrevious className="left-[48%] bottom-0 translate-none top-full z-2 border-none hover:!bg-none shadow-none max-[1330px]:left-[calc(50%-30px)]" />
+                            <CarouselNext className="right-[48%] bottom-0 translate-none top-full z-2 border-none hover:!bg-none shadow-none max-[1330px]:right-[calc(50%-30px)]" />
                         </Carousel>
                     )}
                 </div>

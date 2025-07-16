@@ -38,6 +38,7 @@ export type TourDetailDto = {
     title: string;
     type: string;
     video: string;
+    currency: string;
 }
 
 export const toursApi = {

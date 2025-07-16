@@ -8,6 +8,7 @@ import { Tours } from '@/pages/Tours/Tours'
 import { Kyrgyzstan } from '@/pages/Kyrgyzstan/Kyrgyzstan'
 import { TourDetail } from '@/pages/TourDetail/TourDetail'
 import { Article } from '@/pages/Article/Article'
+import { PrivacyPolicy } from '@/pages/PrivacyPolicy'
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
             { path: "tours/:id", Component: TourDetail },
             { path: "kyrgyzstan", Component: Kyrgyzstan },
             { path: "kyrgyzstan/:id", Component: Article },
+            { path: "privacy", Component: PrivacyPolicy },
             { path: "*", Component: NotFound },
         ],
     },
