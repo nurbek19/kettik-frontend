@@ -285,8 +285,10 @@ export const TourDetail = () => {
                                 {DICTIONARY[lang].price}
                             </p>
 
-                            <p className='text-base text-gray pl-18'>{tour.price} {tour.currency}</p>
-                            <p className='text-base text-gray pl-18'>{DICTIONARY[lang].custom_tours}</p>
+                            <ul className='text-base text-gray list-disc pl-18'>
+                                <li>{tour.price} {tour.currency}</li>
+                                <li>{DICTIONARY[lang].custom_tours}</li>
+                            </ul>
                         </div>
                     </div>
 
