@@ -5,10 +5,11 @@ type CardProps = {
     title: string;
     price: number;
     to: string;
+    currency: string;
     img?: string;
 }
 
-export const Card = ({ title, price, to, img }: CardProps) => {
+export const Card = ({ title, price, to, currency, img }: CardProps) => {
     return (
         <Link to={to} className="flex flex-col border border-[#E5E5E5] rounded-[20px] overflow-hidden transition-transform hover:scale-105">
             <div className="h-[300px]">
@@ -19,7 +20,7 @@ export const Card = ({ title, price, to, img }: CardProps) => {
                 <p className="text-xl font-semibold grow flex items-end pb-4">{title}</p>
 
                 <Button className="flex items-center justify-between w-full h-auto py-3 !px-4">
-                    {`${price} $`}
+                    {`${price} ${currency}`}
 
                     {/* <span className="max-[1024px]:hidden">{DICTIONARY[lang].more}</span> */}
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">

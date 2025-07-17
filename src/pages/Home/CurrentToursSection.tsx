@@ -17,7 +17,7 @@ export const CurrentToursSection = ({ tours }: { tours: ToursDto }) => {
                 <ScrollArea className="w-full [&>div]:p-5">
                     <div className="grid grid-cols-4 gap-5 w-[1280px]">
                         {tours?.results?.slice(0, 4).map((tour) => (
-                            <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`tours/${tour.id}`} />
+                            <Card key={tour.id} title={tour.title} price={tour.price} currency={tour.currency} img={tour.image} to={`tours/${tour.id}`} />
                         ))}
                     </div>
                     <ScrollBar orientation="horizontal" />

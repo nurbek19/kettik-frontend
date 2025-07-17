@@ -151,7 +151,7 @@ export const Tours = () => {
                 ) : (
                     <div className="grid grid-cols-4 gap-5 pt-3 max-[1024px]:grid-cols-2 max-[744px]:grid-cols-1">
                         {tours?.results?.map((tour) => (
-                            <Card key={tour.id} title={tour.title} price={tour.price} img={tour.image} to={`${tour.id}`} />
+                            <Card key={tour.id} title={tour.title} price={tour.price} currency={tour.currency} img={tour.image} to={`${tour.id}`} />
                         ))}
                     </div>
                 )}

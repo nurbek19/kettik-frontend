@@ -13,7 +13,8 @@ export type ToursDto = {
         video: string,
         image: string,
         title: string,
-        price: number
+        price: number,
+        currency: string,
     }>
 }
 
