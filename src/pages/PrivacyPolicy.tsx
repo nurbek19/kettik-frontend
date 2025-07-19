@@ -1,4 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 import { Banner } from "@/components/shared/Banner";
 
@@ -27,7 +30,9 @@ export const PrivacyPolicy = () => {
             <Banner title={DICTIONARY[lang].privacy_title} img={privacyBg} />
 
             <div className="max-w-screen-xl mx-auto py-[60px] max-[1320px]:px-5 max-[744px]:py-8">
-                <p className="text-base text-gray px-25 max-[1024px]:px-0">{data?.text}</p>
+                <div className="text-base text-gray px-25 max-[1024px]:px-0">
+                <ReactMarkdown children={data?.[0].text} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
+                </div>
             </div>
         </div>
     )

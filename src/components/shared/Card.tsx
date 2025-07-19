@@ -13,7 +13,7 @@ export const Card = ({ title, price, to, currency, img }: CardProps) => {
     return (
         <Link to={to} className="flex flex-col border border-[#E5E5E5] rounded-[20px] overflow-hidden transition-transform hover:scale-105">
             <div className="h-[300px]">
-                <img src={img} className="object-cover w-full h-full" alt="tour image" />
+                <img src={img} loading="lazy" className="object-cover w-full h-full" alt="tour image" />
             </div>
 
             <div className="bg-white grow p-5 flex flex-col">

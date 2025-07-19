@@ -128,6 +128,7 @@ export const Gallery = () => {
                                             key={imgObj.id}
                                             src={imgObj.image}
                                             alt={`image-${i}`}
+                                            loading="lazy"
                                             className="w-full h-[400px] object-cover rounded-3xl max-[1024px]:h-[220px] max-[744px]:h-auto"
                                             onClick={() => imageClickHandler(place.id)}
                                         />
@@ -141,6 +142,7 @@ export const Gallery = () => {
                                             key={imgObj.id}
                                             src={imgObj.image}
                                             alt={`image-${i + 3}`}
+                                            loading="lazy"
                                             className="w-full h-[400px] object-cover rounded-3xl max-[1024px]:h-[220px] max-[744px]:h-auto"
                                             onClick={() => imageClickHandler(place.id)}
                                         />
@@ -154,6 +156,7 @@ export const Gallery = () => {
                                             key={imgObj.id}
                                             src={imgObj.image}
                                             alt={`image-${i + 6}`}
+                                            loading="lazy"
                                             className="w-full h-[400px] object-cover rounded-3xl max-[1024px]:h-[220px] max-[744px]:h-auto"
                                             onClick={() => imageClickHandler(place.id)}
                                         />

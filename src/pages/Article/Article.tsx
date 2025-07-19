@@ -55,7 +55,7 @@ export const Article = () => {
 
                     {currentArticle.extra?.map((extraInf) => (
                         <div key={extraInf.id} className='flex flex-col gap-15 pt-8 max-[1024px]:gap-8'>
-                            <img src={extraInf.image} className='w-full h-auto rounded-3xl' alt="article image" />
+                            <img src={extraInf.image} loading="lazy" className='w-full h-auto rounded-3xl' alt="article image" />
                             <p className="text-base text-gray px-25 max-[1024px]:px-0">{extraInf.text}</p>
                         </div>
                     ))}

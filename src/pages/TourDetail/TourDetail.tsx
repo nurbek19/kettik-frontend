@@ -163,7 +163,7 @@ export const TourDetail = () => {
                     <CarouselContent>
                         {tour.images.map((imgObj) => (
                             <CarouselItem key={imgObj.id} className="max-w-[410px] w-full h-[400px] max-[1024px]:max-w-[300px] max-[1024px]:h-[290px] max-[744px]:max-w-[260px] max-[744px]:h-[250px]">
-                                <img src={imgObj.image} className='w-full h-full object-cover' alt="tour image" />
+                                <img src={imgObj.image} loading="lazy" className='w-full h-full object-cover' alt="tour image" />
                             </CarouselItem>
                         ))}
                     </CarouselContent>
@@ -182,7 +182,7 @@ export const TourDetail = () => {
                     {tour.programs?.map((program, index) => (
                         <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={program.id}>
                             <div className="relative max-w-[370px] w-full pr-[65px] border-r-2 border-green before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full before:top-[50%] before:right-[-10px] before:bg-green before:translate-y-[-50%] max-[744px]:before:hidden max-[744px]:border-r-0 max-[744px]:pr-0">
-                                <img src={program.image} className='w-full h-[300px] object-cover rounded-3xl max-[744px]:h-[255px]' alt="tour image" />
+                                <img src={program.image} loading="lazy" className='w-full h-[300px] object-cover rounded-3xl max-[744px]:h-[255px]' alt="tour image" />
                             </div>
 
                             <div>

@@ -120,7 +120,7 @@ export const CompanyNumbers = ({ digits }: { digits: DigitsDto }) => {
                         </div>
 
                         <div>
-                            <img src={digits.background_image} className='w-full h-full object-cover rounded-3xl' alt="company image" />
+                            <img src={digits.background_image} loading="lazy" className='w-full h-full object-cover rounded-3xl' alt="company image" />
                         </div>
                     </div>
                 </div>

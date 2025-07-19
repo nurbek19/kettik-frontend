@@ -55,13 +55,13 @@ export const AboutUsSection = () => {
                     <div className="grid grid-cols-2 gap-5 max-[744px]:order-2">
                         <div className="flex flex-col gap-5">
                             {images?.slice(0, 2)?.map((imgObj) => (
-                                <img key={imgObj.id} src={imgObj.image} className="w-full h-[300px] object-cover rounded-3xl" alt="team image" />
+                                <img key={imgObj.id} src={imgObj.image} loading="lazy" className="w-full h-[300px] object-cover rounded-3xl" alt="team image" />
                             ))}
                         </div>
 
                         <div className="flex flex-col gap-5 pt-[160px]">
                             {images?.slice(2, 4)?.map((imgObj) => (
-                                <img key={imgObj.id} src={imgObj.image} className="w-full h-[300px] object-cover rounded-3xl" alt="team image" />
+                                <img key={imgObj.id} src={imgObj.image} loading="lazy" className="w-full h-[300px] object-cover rounded-3xl" alt="team image" />
                             ))}
                         </div>
                     </div>
@@ -101,7 +101,7 @@ export const AboutUsSection = () => {
                             <CarouselContent className="">
                                 {sliderImages?.map((imgObj) => (
                                     <CarouselItem key={imgObj.id} className="max-w-[410px] w-full h-[400px] max-[1024px]:max-w-[300px] max-[1024px]:h-[290px] max-[744px]:max-w-[260px] max-[744px]:h-[250px]">
-                                        <img src={imgObj.image} className='w-full h-full object-cover' alt="tour image" />
+                                        <img src={imgObj.image} loading="lazy" className='w-full h-full object-cover' alt="tour image" />
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>

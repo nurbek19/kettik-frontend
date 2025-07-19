@@ -91,13 +91,13 @@ export const AboutUs = () => {
                 <div className="pb-[100px] max-[744px]:pb-8">
                     <div className="grid grid-cols-[59%_39.5%] gap-5 pb-5 max-[744px]:grid-cols-1">
                         {images?.slice(0, 2)?.map((imgObj) => (
-                            <img key={imgObj.id} src={imgObj.image} className="w-full h-100 object-cover rounded-3xl" alt="team image" />
+                            <img key={imgObj.id} src={imgObj.image} loading="lazy" className="w-full h-100 object-cover rounded-3xl" alt="team image" />
                         ))}
                     </div>
 
                     <div className="grid grid-cols-[39.5%_59%] gap-5 max-[744px]:grid-cols-1">
                         {images?.slice(2, 4)?.map((imgObj) => (
-                            <img key={imgObj.id} src={imgObj.image} className="w-full h-100 object-cover rounded-3xl" alt="team image" />
+                            <img key={imgObj.id} src={imgObj.image} loading="lazy" className="w-full h-100 object-cover rounded-3xl" alt="team image" />
                         ))}
                     </div>
                 </div>

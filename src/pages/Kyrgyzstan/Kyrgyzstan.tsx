@@ -414,7 +414,7 @@ export const Kyrgyzstan = () => {
                                     </div>
 
                                     <div className="h-[400px] max-[744px]:order-1">
-                                        <img src={article.image} className="w-full h-full object-cover rounded-3xl" alt="news image" />
+                                        <img src={article.image} loading="lazy" className="w-full h-full object-cover rounded-3xl" alt="news image" />
                                     </div>
                                 </Link>
                             )
@@ -423,7 +423,7 @@ export const Kyrgyzstan = () => {
                         return (
                             <Link to={article.id} key={article.id} className="grid grid-cols-2 gap-5 pb-15 max-[1100px]:grid-cols-1">
                                 <div className="">
-                                    <img src={article.image} className="w-full h-[400px] object-cover rounded-3xl max-[744px]:h-auto" alt="news image" />
+                                    <img src={article.image} loading="lazy" className="w-full h-[400px] object-cover rounded-3xl max-[744px]:h-auto" alt="news image" />
                                 </div>
 
                                 <div>
