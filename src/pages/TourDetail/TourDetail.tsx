@@ -179,17 +179,24 @@ export const TourDetail = () => {
                     <h3 className='text-center pb-6 max-[1024px]:text-[36px] max-[744px]:text-[28px]'>{DICTIONARY[lang].tour_program}</h3>
                     <h5 className='text-center pb-6 max-[744px]:text-[22px]'>{DICTIONARY[lang].tour_duration} {tour.duration} {DICTIONARY[lang].tour_days}</h5>
 
-                    {tour.programs?.map((program, index) => (
-                        <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={program.id}>
+                    {tour.programs?.map((_, index) => {
+                        const currentProgram = tour.programs.find((p) => p.day === (index + 1));
+
+                        if (!currentProgram) {
+                            return null;
+                        }
+
+                        return (
+                            <div className='grid grid-cols-[370px_1fr] gap-x-15 max-[744px]:grid-cols-1 max-[744px]:gap-6 max-[744px]:pb-8' key={currentProgram.id}>
                             <div className="relative max-w-[370px] w-full pr-[65px] border-r-2 border-green before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full before:top-[50%] before:right-[-10px] before:bg-green before:translate-y-[-50%] max-[744px]:before:hidden max-[744px]:border-r-0 max-[744px]:pr-0">
-                                <img src={program.image} loading="lazy" className='w-full h-[300px] object-cover rounded-3xl max-[744px]:h-[255px]' alt="tour image" />
+                                <img src={currentProgram.image} loading="lazy" className='w-full h-[300px] object-cover rounded-3xl max-[744px]:h-[255px]' alt="tour image" />
                             </div>
 
                             <div>
-                                <p className='text-2xl text-dark-gray font-semibold pb-6 max-[744px]:text-xl'>{DICTIONARY[lang].day} {program.day}:</p>
+                                <p className='text-2xl text-dark-gray font-semibold pb-6 max-[744px]:text-xl'>{DICTIONARY[lang].day} {currentProgram.day}:</p>
 
                                 <div className='[&>ul]:text-base [&>ul]:text-gray [&>ul]:list-disc [&>ul]:pl-6'>
-                                    <ReactMarkdown children={program.text} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
+                                    <ReactMarkdown children={currentProgram.text} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} />
                                 </div>
 
                                 {/* <div className='text-base text-gray pl-6'>
@@ -204,7 +211,8 @@ export const TourDetail = () => {
                                 </>
                             )}
                         </div>
-                    ))}
+                        )
+                    })}
                 </div>
 
 
